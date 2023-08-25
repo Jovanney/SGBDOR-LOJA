@@ -65,6 +65,26 @@ CREATE OR REPLACE TYPE ordem_de_servico_tp AS OBJECT (
 CREATE OR REPLACE TYPE transportadora_tp AS OBJECT (
     cnpj VARCHAR(14)
 );
+
+-- Pedido
+
+CREATE OR REPLACE TYPE pedido_tp AS OBJECT (
+    id_pedido NUMBER(10),
+	descricao VARCHAR2(100),
+	preco NUMBER(8,2),
+	data_pedido DATE,
+	destino VARCHAR2(50),
+	local_saida VARCHAR2(50),
+	data_saida DATE,
+	local_atual VARCHAR2(50),
+	data_entrega DATE,
+	frete NUMBER(5,2),
+	status VARCHAR2(20),
+
+	cliente REF cliente_tp,
+	transportadora REF transportadora_tp
+);
+
 -- Criando Tabelas
 
 -- Endereco
@@ -132,4 +152,23 @@ CREATE TABLE Ordem_de_servico (
 
 CREATE TABLE Transportadora OF transportadora_tp(
     cnpj PRIMARY KEY
+);
+
+-- Pedido 
+
+CREATE TABLE Pedido OF pedido_tp (
+	descricao NOT NULL,
+	preco NOT NULL,
+	data_pedido NOT NULL ,
+	destino NOT NULL,
+	local_saida NOT NULL,
+	data_saida NOT NULL ,
+	local_atual NOT NULL,
+	data_entrega NOT NULL ,
+	frete NOT NULL,
+	status NOT NULL,
+
+	id_pedido PRIMARY KEY,
+    cliente WITH ROWID REFERENCES Cliente,
+	transportadora WITH ROWID REFERENCES Transportadora
 );
