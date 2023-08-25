@@ -31,3 +31,37 @@ INSERT INTO Endereco VALUES (endereco_tp('27774100', 'bairro uva', 'rua kiwi', '
 INSERT INTO Endereco VALUES (endereco_tp('28884200', 'bairro goiaba', 'rua acerola', 'numero 2800', 'apto 8100'));
 INSERT INTO Endereco VALUES (endereco_tp('29994300', 'bairro caju', 'rua pera', 'numero 3100', 'apto 8400'));
 INSERT INTO Endereco VALUES (endereco_tp('30004400', 'bairro figo', 'rua maracuja', 'numero 3000', 'apto 8700'));
+
+--povoamento transportadora
+
+INSERT INTO Transportadora VALUES (transportadora_tp(90000000000009, 'aspas'));
+INSERT INTO Transportadora VALUES (transportadora_tp(90101010101019, 'Less'));
+INSERT INTO Transportadora VALUES (transportadora_tp(90202020202029, 'Saadhak'));
+INSERT INTO Transportadora VALUES (transportadora_tp(90303030303039, 'cauanzin'));
+INSERT INTO Transportadora VALUES (transportadora_tp(90404040404049, 'tuyz'));
+INSERT INTO Transportadora VALUES (transportadora_tp(90505050505059, 'ANGE1'));
+INSERT INTO Transportadora VALUES (transportadora_tp(90606060606069, 'Shao'));
+INSERT INTO Transportadora VALUES (transportadora_tp(90707070707079, 'Zyppan'));
+INSERT INTO Transportadora VALUES (transportadora_tp(90808080808089, 'SUYGETSU'));
+INSERT INTO Transportadora VALUES (transportadora_tp(90909090909099, 'cNed'));
+INSERT INTO Transportadora VALUES (transportadora_tp(91010101010109, 'Boostio'));
+INSERT INTO Transportadora VALUES (transportadora_tp(91111111111119, 'Ethan'));
+INSERT INTO Transportadora VALUES (transportadora_tp(91212121212129, 'jawgemo'));
+INSERT INTO Transportadora VALUES (transportadora_tp(91313131313139, 'C0M'));
+INSERT INTO Transportadora VALUES (transportadora_tp(91414141414149, 'Demon1'));
+INSERT INTO Transportadora VALUES (transportadora_tp(91515151515159, 'Klaus'));
+INSERT INTO Transportadora VALUES (transportadora_tp(91616161616169, 'NagZ'));
+INSERT INTO Transportadora VALUES (transportadora_tp(91717171717179, 'Daveeys'));
+INSERT INTO Transportadora VALUES (transportadora_tp(91818181818189, 'Melser'));
+INSERT INTO Transportadora VALUES (transportadora_tp(91919191919199, 'keznit'));
+INSERT INTO Transportadora VALUES (transportadora_tp(92020202020209, 'xeta'));
+INSERT INTO Transportadora VALUES (transportadora_tp(92121212121219, 'Munchkin'));
+INSERT INTO Transportadora VALUES (transportadora_tp(92222222222229, 'ban'));
+INSERT INTO Transportadora VALUES (transportadora_tp(92323232323239, 'Sayaplayer'));
+INSERT INTO Transportadora VALUES (transportadora_tp(92424242424249, 'Carpe'));
+INSERT INTO Transportadora VALUES (transportadora_tp(92525252525259, 'stax'));
+INSERT INTO Transportadora VALUES (transportadora_tp(92626262626269, 'Rb'));
+INSERT INTO Transportadora VALUES (transportadora_tp(92727272727279, 'BuZz'));
+INSERT INTO Transportadora VALUES (transportadora_tp(92828282828289, 'MaKo'));
+INSERT INTO Transportadora VALUES (transportadora_tp(92929292929299, 'Foxy9'));
+
