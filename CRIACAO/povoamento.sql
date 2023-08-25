@@ -32,6 +32,8 @@ INSERT INTO Endereco VALUES (endereco_tp('28884200', 'bairro goiaba', 'rua acero
 INSERT INTO Endereco VALUES (endereco_tp('29994300', 'bairro caju', 'rua pera', 'numero 3100', 'apto 8400'));
 INSERT INTO Endereco VALUES (endereco_tp('30004400', 'bairro figo', 'rua maracuja', 'numero 3000', 'apto 8700'));
 
+
+
 --povoamento transportadora
 
 INSERT INTO Transportadora VALUES (transportadora_tp(90000000000009, 'aspas'));
@@ -65,3 +67,51 @@ INSERT INTO Transportadora VALUES (transportadora_tp(92727272727279, 'BuZz'));
 INSERT INTO Transportadora VALUES (transportadora_tp(92828282828289, 'MaKo'));
 INSERT INTO Transportadora VALUES (transportadora_tp(92929292929299, 'Foxy9'));
 
+
+
+--povoamento telefone
+
+INSERT INTO Telefone VALUES (telefone_tp(9981815244));
+INSERT INTO Telefone VALUES (telefone_tp(9111111111));
+INSERT INTO Telefone VALUES (telefone_tp(9222222222));
+INSERT INTO Telefone VALUES (telefone_tp(9333333333));
+INSERT INTO Telefone VALUES (telefone_tp(9444444444));
+INSERT INTO Telefone VALUES (telefone_tp(9555555555));
+INSERT INTO Telefone VALUES (telefone_tp(9666666666));
+INSERT INTO Telefone VALUES (telefone_tp(9777777777));
+INSERT INTO Telefone VALUES (telefone_tp(9888888888));
+INSERT INTO Telefone VALUES (telefone_tp(9000000000));
+INSERT INTO Telefone VALUES (telefone_tp(9111111112));
+INSERT INTO Telefone VALUES (telefone_tp(9111111113));
+INSERT INTO Telefone VALUES (telefone_tp(9111111114));
+INSERT INTO Telefone VALUES (telefone_tp(9111111115));
+INSERT INTO Telefone VALUES (telefone_tp(9111111116));
+INSERT INTO Telefone VALUES (telefone_tp(9111111117));
+INSERT INTO Telefone VALUES (telefone_tp(9111111118));
+INSERT INTO Telefone VALUES (telefone_tp(9111111119));
+INSERT INTO Telefone VALUES (telefone_tp(9111111110));
+INSERT INTO Telefone VALUES (telefone_tp(9222222221));
+INSERT INTO Telefone VALUES (telefone_tp(9222222223));
+INSERT INTO Telefone VALUES (telefone_tp(9222222224));
+INSERT INTO Telefone VALUES (telefone_tp(9222222225));
+INSERT INTO Telefone VALUES (telefone_tp(9222222226));
+INSERT INTO Telefone VALUES (telefone_tp(9222222227));
+INSERT INTO Telefone VALUES (telefone_tp(9222222228));
+INSERT INTO Telefone VALUES (telefone_tp(9222222229));
+INSERT INTO Telefone VALUES (telefone_tp(9222222220));
+INSERT INTO Telefone VALUES (telefone_tp(9333333331));
+INSERT INTO Telefone VALUES (telefone_tp(9333333332));
+INSERT INTO Telefone VALUES (telefone_tp(9333333334));
+INSERT INTO Telefone VALUES (telefone_tp(9333333335));
+INSERT INTO Telefone VALUES (telefone_tp(9333333336));
+INSERT INTO Telefone VALUES (telefone_tp(9333333337));
+INSERT INTO Telefone VALUES (telefone_tp(9333333337));
+INSERT INTO Telefone VALUES (telefone_tp(9444444444));
+INSERT INTO Telefone VALUES (telefone_tp(9555555555));
+INSERT INTO Telefone VALUES (telefone_tp(9666666666));
+INSERT INTO Telefone VALUES (telefone_tp(9777777777));
+INSERT INTO Telefone VALUES (telefone_tp(9888888888));
+INSERT INTO Telefone VALUES (telefone_tp(9999999999));
+INSERT INTO Telefone VALUES (telefone_tp(9101010101));
+INSERT INTO Telefone VALUES (telefone_tp(9222522232));
+INSERT INTO Telefone VALUES (telefone_tp(9333231333));
