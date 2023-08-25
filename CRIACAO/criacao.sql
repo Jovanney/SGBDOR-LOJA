@@ -58,8 +58,13 @@ CREATE OR REPLACE TYPE ordem_de_servico_tp AS OBJECT (
     descricao VARCHAR2(100),
     produto VARCHAR2(50),
     data_de_emissao DATE,
-);        
+);      
 
+-- Transportadora
+
+CREATE OR REPLACE TYPE transportadora_tp AS OBJECT (
+    cnpj VARCHAR(14)
+);
 -- Criando Tabelas
 
 -- Endereco
@@ -123,3 +128,8 @@ CREATE TABLE Ordem_de_servico (
     protocolo PRIMARY KEY
 );
 
+-- Transportadora
+
+CREATE TABLE Transportadora OF transportadora_tp(
+    cnpj PRIMARY KEY
+);
