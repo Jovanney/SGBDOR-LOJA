@@ -10,6 +10,7 @@ CREATE OR REPLACE TYPE endereco_tp AS OBJECT (
     Complemento VARCHAR2(200)
 );
 
+/
 
 -- Telefone
 
@@ -17,7 +18,11 @@ CREATE OR REPLACE TYPE telefone_tp AS OBJECT (
     numero NUMBER
 );
 
+/
+
 CREATE OR REPLACE TYPE varray_telefone AS VARRAY(2) OF telefone_tp;
+
+/
 
 -- Cargo
 
@@ -25,6 +30,8 @@ CREATE OR REPLACE TYPE cargo_tp AS OBJECT (
     cargo VARCHAR2(200),
     salario VARCHAR2(200)
 );
+
+/
 
 -- Usuario
 
@@ -38,17 +45,23 @@ CREATE OR REPLACE TYPE usuario_tp AS OBJECT (
     
 ) NOT FINAL;
 
+/
+
 -- Cliente
 CREATE OR REPLACE TYPE cliente_tp UNDER usuario_tp (
     data_criacao_conta DATE
 );
+
+/
 
 -- Funcionário
 CREATE OR REPLACE TYPE funcionario_tp UNDER usuario_tp (
     data_contratacao DATE,
     cargo REF cargo_tp,
     supervisor REF funcionario_tp
-);    
+);   
+
+/
 
 -- Ordem de Serviço
 
@@ -60,11 +73,15 @@ CREATE OR REPLACE TYPE ordem_de_servico_tp AS OBJECT (
     data_de_emissao DATE
 );      
 
+/
+
 -- Transportadora
 
 CREATE OR REPLACE TYPE transportadora_tp AS OBJECT (
     cnpj VARCHAR(14)
 );
+
+/
 
 -- Pedido
 
@@ -85,6 +102,8 @@ CREATE OR REPLACE TYPE pedido_tp AS OBJECT (
 	transportadora REF transportadora_tp
 );
 
+/
+
 -- Pagamento
 
 CREATE OR REPLACE TYPE pagamento_tp AS OBJECT (
@@ -95,6 +114,8 @@ CREATE OR REPLACE TYPE pagamento_tp AS OBJECT (
     
     pedido REF pedido_tp
 );
+
+/
 
 -- Produto 
 
@@ -110,6 +131,38 @@ CREATE OR REPLACE TYPE produto_tp AS OBJECT (
 	pedido REF pedido_tp
 );
 
+/
+
+-- Assistencia
+
+CREATE OR REPLACE TYPE assistencia_tp AS OBJECT(
+    cnpj VARCHAR2(14),
+    data_inicio DATE,
+    descricao VARCHAR2(50),
+    status VARCHAR2(50),
+    equipamento VARCHAR2(50)
+);
+
+/
+
+-- Aciona
+
+CREATE OR REPLACE TYPE aciona_tp AS OBJECT(
+	cliente REF cliente_tp,
+  	funcionario REF funcionario_tp,
+  	assistencia REF assistencia_tp
+);
+
+/
+
+-- TipoAssistencia
+
+CREATE OR REPLACE TYPE tipo_assistencia_tp AS OBJECT (
+    tipo_assistencia VARCHAR2(50),
+    assistencia REF assistencia_tp
+);
+
+/
 
 -- Criando Tabelas
 
@@ -123,11 +176,15 @@ CREATE TABLE Endereco OF endereco_tp (
     complemento NOT NULL
 );
 
+/
+
 -- Telefone
 
 CREATE TABLE Telefone OF telefone_tp (
     PRIMARY KEY (numero)
 );
+
+/
 
 -- Usuario
 
@@ -139,6 +196,8 @@ CREATE TABLE Usuario OF usuario_tp (
     endereco WITH ROWID REFERENCES Endereco
 );  
 
+/
+
 -- Cliente 
 CREATE TABLE Cliente OF cliente_tp ( 
     data_criacao_conta NOT NULL,
@@ -146,12 +205,16 @@ CREATE TABLE Cliente OF cliente_tp (
     CONSTRAINT cliente_pk PRIMARY KEY (email)
 );
 
+/
+
 -- Cargo
 
 CREATE TABLE Cargo OF cargo_tp (
-    cargo PRIMARY KEY;
+    cargo PRIMARY KEY,
     salario NOT NULL
 );
+
+/
 
 -- Funcionário
 
@@ -162,6 +225,8 @@ CREATE TABLE Funcionario OF funcionario_tp (
 
     CONSTRAINT funcionario_pk PRIMARY KEY (email)
 );
+
+/
 
 -- Ordem de Serviço
 
@@ -174,11 +239,15 @@ CREATE TABLE Ordem_de_servico OF ordem_de_servico_tp (
     protocolo PRIMARY KEY
 );
 
+/
+
 -- Transportadora
 
 CREATE TABLE Transportadora OF transportadora_tp(
     cnpj PRIMARY KEY
 );
+
+/
 
 -- Pedido 
 
@@ -199,6 +268,8 @@ CREATE TABLE Pedido OF pedido_tp (
 	transportadora WITH ROWID REFERENCES Transportadora
 );
 
+/
+
 -- Pagamento
 
 CREATE TABLE Pagamento OF pagamento_tp (
@@ -209,6 +280,8 @@ CREATE TABLE Pagamento OF pagamento_tp (
     id_pagamento PRIMARY KEY,
     pedido WITH ROWID REFERENCES Pedido
 );
+
+/
 
 -- Produto
 
@@ -224,3 +297,36 @@ CREATE TABLE Produto OF produto_tp (
     id_produto PRIMARY KEY,
     pedido WITH ROWID REFERENCES Pedido
 );
+
+/
+
+-- Assistencia
+
+CREATE TABLE Assistencia OF assistencia_tp(
+    data_inicio NOT NULL,
+    descricao NOT NULL,
+    status NOT NULL,
+    equipamento NOT NULL,
+
+    cnpj PRIMARY KEY
+);
+
+/
+-- Aciona
+
+CREATE TABLE Aciona OF aciona_tp(
+	cliente WITH ROWID REFERENCES Cliente,
+  	funcionario WITH ROWID REFERENCES Funcionario,
+  	assistencia WITH ROWID REFERENCES Assistencia
+);
+
+/
+
+
+
+-- -- TipoAssistencia
+-- CREATE TABLE TipoAssistencia OF tipo_assistencia_tp (
+    
+--     CONSTRAINT tipoassistencia_pkey PRIMARY KEY (tipo_assistencia, assistencia),
+--     assistencia WITH ROWID REFERENCES Assistencia
+-- );
