@@ -164,6 +164,65 @@ CREATE OR REPLACE TYPE tipo_assistencia_tp AS OBJECT (
 
 /
 
+-- Relatorio aux
+CREATE OR REPLACE TYPE relatorio_aux_tp AS OBJECT (
+    codigo_relatorio_aux VARCHAR2(50)
+);
+/
+
+-- Servico Aux
+CREATE OR REPLACE TYPE Servico_aux_tp AS OBJECT (
+    codigo_servico_aux VARCHAR2(50)
+);
+
+/
+
+--Servico a ser realizado MESMO PROBLEMA DO REF COMO PK
+
+CREATE OR REPLACE TYPE servico_a_ser_realizado_tp AS OBJECT (
+	funcionario REF funcionario_tp,
+  	ordServico REF ordem_de_servico_tp,
+  	relatorio REF relatorio_aux_tp,
+  	servico REF Servico_aux_tp
+);
+
+/
+
+-- Relatorio
+
+CREATE OR REPLACE TYPE relatorio_tp AS OBJECT (
+    codigo_relatorio VARCHAR2(50),
+    descricao VARCHAR(50),
+    funcionario REF funcionario_tp,
+    protocolo VARCHAR2(50)
+);
+/
+
+-- Servico
+
+CREATE OR REPLACE TYPE servico_tp AS OBJECT (
+    codigo_servico VARCHAR2(50),
+    status VARCHAR(20),
+    data_inicio DATE,
+    data_conclusao DATE,
+    funcionario REF relatorio_tp,
+    protocolo REF relatorio_tp
+);
+/
+
+-- Protocolo
+CREATE OR REPLACE TYPE protocolo_de_Atendimento_tp AS OBJECT (
+    codigo_Protocolo VARCHAR2(50),
+    assistencia REF assistencia_tp,
+    desc_Pro NUMBER,
+    acoes_tomadas VARCHAR2(50),
+    data_inicio DATE,
+    data_conclusao DATE
+);
+
+/
+
+
 -- Criando Tabelas
 
 -- Endereco
@@ -321,8 +380,6 @@ CREATE TABLE Aciona OF aciona_tp(
 );
 
 /
-
-
 
 -- -- TipoAssistencia
 -- CREATE TABLE TipoAssistencia OF tipo_assistencia_tp (
