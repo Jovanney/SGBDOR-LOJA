@@ -78,6 +78,7 @@ CREATE OR REPLACE TYPE ordem_de_servico_tp AS OBJECT (
 -- Transportadora
 
 CREATE OR REPLACE TYPE transportadora_tp AS OBJECT (
+    nome VARCHAR2(100),
     cnpj VARCHAR(14)
 );
 
@@ -303,6 +304,7 @@ CREATE TABLE Ordem_de_servico OF ordem_de_servico_tp (
 -- Transportadora
 
 CREATE TABLE Transportadora OF transportadora_tp(
+    nome NOT NULL,
     cnpj PRIMARY KEY
 );
 
