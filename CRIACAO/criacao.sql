@@ -57,7 +57,7 @@ CREATE OR REPLACE TYPE ordem_de_servico_tp AS OBJECT (
     funcionario REF funcionario_tp,
     descricao VARCHAR2(100),
     produto VARCHAR2(50),
-    data_de_emissao DATE,
+    data_de_emissao DATE
 );      
 
 -- Transportadora
@@ -84,6 +84,18 @@ CREATE OR REPLACE TYPE pedido_tp AS OBJECT (
 	cliente REF cliente_tp,
 	transportadora REF transportadora_tp
 );
+
+-- Pagamento
+
+CREATE OR REPLACE TYPE pagamento_tp AS OBJECT (
+    id_pagamento NUMBER(10),
+    data_do_pagamento DATE,
+    status VARCHAR2(100),
+    metodo_do_pagamento VARCHAR2(50),
+    
+    pedido REF pedido_tp
+);
+
 
 -- Criando Tabelas
 
@@ -139,7 +151,7 @@ CREATE TABLE Funcionario OF funcionario_tp (
 
 -- Ordem de Serviço
 
-CREATE TABLE Ordem_de_servico (
+CREATE TABLE Ordem_de_servico OF ordem_de_servico_tp (
     descricao NOT NULL,
     produto NOT NULL,
     data_de_emissao NOT NULL,
@@ -164,11 +176,22 @@ CREATE TABLE Pedido OF pedido_tp (
 	local_saida NOT NULL,
 	data_saida NOT NULL ,
 	local_atual NOT NULL,
-	data_entrega NOT NULL ,
+	data_entrega NOT NULL,
 	frete NOT NULL,
 	status NOT NULL,
 
 	id_pedido PRIMARY KEY,
     cliente WITH ROWID REFERENCES Cliente,
 	transportadora WITH ROWID REFERENCES Transportadora
+);
+
+-- Pagamento
+
+CREATE TABLE Pagamento OF pagamento_tp (
+    data_do_pagamento NOT NULL,
+    status NOT NULL,
+    metodo_do_pagamento NOT NULL,
+    
+    id_pagamento PRIMARY KEY,
+    pedido WITH ROWID REFERENCES Pedido
 );
