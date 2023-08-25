@@ -78,8 +78,8 @@ CREATE OR REPLACE TYPE ordem_de_servico_tp AS OBJECT (
 -- Transportadora
 
 CREATE OR REPLACE TYPE transportadora_tp AS OBJECT (
-    nome VARCHAR2(100),
-    cnpj VARCHAR(14)
+    cnpj VARCHAR(14),
+    nome VARCHAR2(100)
 );
 
 /
