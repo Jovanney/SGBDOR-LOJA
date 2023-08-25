@@ -50,6 +50,15 @@ CREATE OR REPLACE TYPE funcionario_tp UNDER usuario_tp (
     supervisor REF funcionario_tp
 );    
 
+-- Ordem de Serviço
+
+CREATE OR REPLACE TYPE ordem_de_servico_tp AS OBJECT (
+    protocolo VARCHAR2(50),
+    funcionario REF funcionario_tp,
+    descricao VARCHAR2(100),
+    produto VARCHAR2(50),
+    data_de_emissao DATE,
+);        
 
 -- Criando Tabelas
 
@@ -101,4 +110,16 @@ CREATE TABLE Funcionario OF funcionario_tp (
     supervisor SCOPE IS Funcionario,
 
     CONSTRAINT funcionario_pk PRIMARY KEY (email)
-)
+);
+
+-- Ordem de Serviço
+
+CREATE TABLE Ordem_de_servico (
+    descricao NOT NULL,
+    produto NOT NULL,
+    data_de_emissao NOT NULL,
+
+    funcionario WITH ROWID REFERENCES Funcionario,
+    protocolo PRIMARY KEY
+);
+
