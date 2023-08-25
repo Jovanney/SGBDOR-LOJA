@@ -96,6 +96,20 @@ CREATE OR REPLACE TYPE pagamento_tp AS OBJECT (
     pedido REF pedido_tp
 );
 
+-- Produto 
+
+CREATE OR REPLACE TYPE produto_tp AS OBJECT (
+    id_produto NUMBER(10),
+	quantidade NUMBER(3),
+	nome VARCHAR2(100),
+	preco NUMBER(7,2),
+	data_estoque DATE,
+	caracteristicas VARCHAR2(200),
+	marca VARCHAR2(20),
+	categoria VARCHAR2(20),
+	pedido REF pedido_tp
+);
+
 
 -- Criando Tabelas
 
@@ -193,5 +207,20 @@ CREATE TABLE Pagamento OF pagamento_tp (
     metodo_do_pagamento NOT NULL,
     
     id_pagamento PRIMARY KEY,
+    pedido WITH ROWID REFERENCES Pedido
+);
+
+-- Produto
+
+CREATE TABLE Produto OF produto_tp (
+	quantidade NOT NULL,
+	nome NOT NULL,
+	preco NOT NULL,
+	data_estoque NOT NULL,
+	caracteristicas NOT NULL,
+	marca NOT NULL,
+	categoria NOT NULL,
+	
+    id_produto PRIMARY KEY,
     pedido WITH ROWID REFERENCES Pedido
 );
