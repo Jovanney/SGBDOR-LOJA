@@ -387,3 +387,31 @@ CREATE TABLE Aciona OF aciona_tp(
 --     CONSTRAINT tipoassistencia_pkey PRIMARY KEY (tipo_assistencia, assistencia),
 --     assistencia WITH ROWID REFERENCES Assistencia
 -- );
+
+-- Relatorio aux
+CREATE TABLE Relatorio_aux OF relatorio_aux_tp (
+    CONSTRAINT relatorio_aux_pk PRIMARY KEY (codigo_relatorio_aux));
+
+/
+
+-- Servico Aux
+CREATE TABLE Servico_aux OF servico_aux_tp (
+    CONSTRAINT servico_aux_pk PRIMARY KEY (codigo_servico_aux));
+
+/
+
+-- Servico a ser realizado
+-- CREATE TABLE Servico_a_ser_realizado OF servico_a_ser_realizado_tp (
+-- 	CONSTRAINT funcionario_Aprova_pk PRIMARY KEY (funcionario, ordServico));
+
+/
+
+-- Relatorio
+
+CREATE TABLE Relatorio OF relatorio_tp (
+    CONSTRAINT relatorio_pk PRIMARY KEY (codigo_relatorio));
+
+--Servico
+
+CREATE TABLE Servico OF servico_tp (
+    CONSTRAINT servico_pk PRIMARY KEY (codigo_servico));
