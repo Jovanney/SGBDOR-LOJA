@@ -136,6 +136,8 @@ INSERT INTO Usuario VALUES (usuario_tp('pessoaC@gmail.com','CCCCCC','Pessoa C', 
 INSERT INTO Usuario VALUES (usuario_tp('pessoaD@gmail.com','DDDDDD','Pessoa D', 21, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '33333400'), varray_telefone(telefone_tp(9734562187), telefone_tp(9321654982))));
 INSERT INTO Usuario VALUES (usuario_tp('pessoaE@gmail.com','EEEEEE','Pessoa E', 22, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '44444500'), varray_telefone(telefone_tp(9245873164), telefone_tp(9998887777))));
 
+
+
 --povoamento descricao
 
 INSERT INTO Descricao VALUES (descricao_tp(2, 'garantindo um blblala'));
@@ -213,6 +215,8 @@ UPDATE Cliente c
 SET VALUE(c) = cliente_tp('clientexy@gmail.com','B1B1B1','Cliente B', 25, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '66666700'), varray_telefone(telefone_tp(9023456789), telefone_tp(9222222222)), TO_DATE('2023-08-23', 'YYYY-MM-DD'))
 WHERE c.email = 'clienteA@gmail.com';
 
+
+
 -- povoamento relatorio_aux
 
 INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('2'));
@@ -262,6 +266,7 @@ INSERT INTO Pedido VALUES (pedido_tp(9961616169, '2x Monitor ASUS TUF Gaming VG2
 INSERT INTO Pedido VALUES (pedido_tp(9013131319, '1x Console PlayStation 5', 499.99, TO_DATE('2023-08-14', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteJ@gmail.com'), 'Rua dos Games, 101', 'Depósito 3 - Rio de Janeiro', TO_DATE('2023-08-18', 'YYYY-MM-DD'), 'São Paulo', TO_DATE('2023-08-22', 'YYYY-MM-DD'), (SELECT REF(T) FROM Transportadora T WHERE T.cnpj = '91515151515159'), 28.50, 'Entregue'));
 
 
+
 -- Povoamento de Relatorio
 
 INSERT INTO Relatorio VALUES (relatorio_tp('Codigo1', 'Descricao1', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com'), 'Protocolo1'));
@@ -275,7 +280,9 @@ INSERT INTO Relatorio VALUES (relatorio_tp('Codigo8', 'Descricao8', (SELECT REF(
 INSERT INTO Relatorio VALUES (relatorio_tp('Codigo9', 'Descricao9', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com'), 'Protocolo9'));
 INSERT INTO Relatorio VALUES (relatorio_tp('Codigo10', 'Descricao10', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioB@gmail.com'), 'Protocolo10'));
 
--- Aciona
+
+
+-- povoamento Aciona
 
 INSERT INTO Aciona VALUES (aciona_tp((SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteA@gmail.com'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com'), (SELECT REF(A) FROM Assistencia A WHERE A.cnpj = '34567890123456')));
 INSERT INTO Aciona VALUES (aciona_tp((SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteB@gmail.com'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioB@gmail.com'), (SELECT REF(A) FROM Assistencia A WHERE A.cnpj = '45678901234567')));
@@ -289,7 +296,8 @@ INSERT INTO Aciona VALUES (aciona_tp((SELECT REF(C) FROM Cliente C WHERE C.email
 INSERT INTO Aciona VALUES (aciona_tp((SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteC@gmail.com'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioB@gmail.com'), (SELECT REF(A) FROM Assistencia A WHERE A.cnpj = '34567890123456')));
 
 
---Ordem de Serviço
+
+-- povoamento Ordem de Serviço
 
 INSERT INTO Ordem_de_servico VALUES ('BBBBBB', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioB@gmail.com'), 'descricaoB', 'produtoB', TO_DATE('2023-08-15', 'YYYY-MM-DD'));
 INSERT INTO Ordem_de_servico VALUES ('CCCCCC', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioC@gmail.com'), 'descricaoC', 'produtoC', TO_DATE('2023-09-01', 'YYYY-MM-DD'));
@@ -315,3 +323,24 @@ INSERT INTO Servico VALUES (servico_tp('Servico7', 'Em andamento', TO_DATE('2023
 INSERT INTO Servico VALUES (servico_tp('Servico8', 'Concluído', TO_DATE('2023-08-11', 'YYYY-MM-DD'), TO_DATE('2023-08-12', 'YYYY-MM-DD'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo8'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo8')));
 INSERT INTO Servico VALUES (servico_tp('Servico9', 'Em andamento', TO_DATE('2023-08-13', 'YYYY-MM-DD'), NULL, (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo9'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo9')));
 INSERT INTO Servico VALUES (servico_tp('Servico10', 'Concluído', TO_DATE('2023-08-14', 'YYYY-MM-DD'), TO_DATE('2023-08-15', 'YYYY-MM-DD'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo10'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo10')));
+INSERT INTO Ordem_de_servico VALUES ('KKKKKK', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioK@gmail.com'), 'descricaoK', 'produtoK', TO_DATE('2023-08-12', 'YYYY-MM-DD'));
+
+
+
+-- povoamento pagamento
+
+INSERT INTO Pagamento VALUES (pagamento_tp(8401335639, TO_DATE('2023-07-21', 'YYYY-MM-DD'), 'Processando', 'Em espécie', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9353535359)));
+INSERT INTO Pagamento VALUES (pagamento_tp(9290883750, TO_DATE('2023-06-15', 'YYYY-MM-DD'), 'Confirmado', 'Crédito', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9010101019)));
+INSERT INTO Pagamento VALUES (pagamento_tp(2807999857, TO_DATE('2023-05-28', 'YYYY-MM-DD'), 'Processando', 'Boleto', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9131313139)));
+INSERT INTO Pagamento VALUES (pagamento_tp(1089485343, TO_DATE('2023-07-03', 'YYYY-MM-DD'), 'Confirmado', 'Crédito', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9151515159)));
+INSERT INTO Pagamento VALUES (pagamento_tp(7747535127, TO_DATE('2023-05-05', 'YYYY-MM-DD'), 'Cancelado', 'Pix', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9202020209)));
+INSERT INTO Pagamento VALUES (pagamento_tp(3441727099, TO_DATE('2023-06-06', 'YYYY-MM-DD'), 'Processando', 'Boleto', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9222222229)));
+INSERT INTO Pagamento VALUES (pagamento_tp(8275845891, TO_DATE('2023-07-07', 'YYYY-MM-DD'), 'Processando', 'Em espécie', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9242424249)));
+INSERT INTO Pagamento VALUES (pagamento_tp(9286776558, TO_DATE('2023-07-01', 'YYYY-MM-DD'), 'Cancelado', 'Crédito', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9242424249)));
+INSERT INTO Pagamento VALUES (pagamento_tp(1632102375, TO_DATE('2023-06-30', 'YYYY-MM-DD'), 'Confirmado', 'Crédito', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9424242429)));
+INSERT INTO Pagamento VALUES (pagamento_tp(7421384903, TO_DATE('2023-08-10', 'YYYY-MM-DD'), 'Processando', 'Boleto', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9505050509)));
+INSERT INTO Pagamento VALUES (pagamento_tp(5285729051, TO_DATE('2023-08-15', 'YYYY-MM-DD'), 'Confirmado', 'Em espécie', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9555555559)));
+INSERT INTO Pagamento VALUES (pagamento_tp(9102450723, TO_DATE('2023-08-20', 'YYYY-MM-DD'), 'Cancelado', 'Crédito', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9606060609)));
+INSERT INTO Pagamento VALUES (pagamento_tp(1829499587, TO_DATE('2023-08-25', 'YYYY-MM-DD'), 'Processando', 'Pix', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9656565659)));
+INSERT INTO Pagamento VALUES (pagamento_tp(6703872429, TO_DATE('2023-08-30', 'YYYY-MM-DD'), 'Confirmado', 'Boleto', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9707070709)));
+INSERT INTO Pagamento VALUES (pagamento_tp(3498120543, TO_DATE('2023-09-04', 'YYYY-MM-DD'), 'Processando', 'Em espécie', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9757575759)));
