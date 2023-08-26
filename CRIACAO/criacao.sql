@@ -97,9 +97,9 @@ CREATE OR REPLACE TYPE pedido_tp AS OBJECT (
 	data_saida DATE,
 	local_atual VARCHAR2(50),
 	data_entrega DATE,
-	transportadora REF transportadora_tp
+	transportadora REF transportadora_tp,
 	frete NUMBER(5,2),
-	status VARCHAR2(20),
+	status VARCHAR2(20)
 
 );
 
