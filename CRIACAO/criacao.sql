@@ -142,22 +142,9 @@ CREATE OR REPLACE TYPE assistencia_tp AS OBJECT(
     descricao VARCHAR2(50),
     status VARCHAR2(50),
     equipamento VARCHAR2(50)
-    CONSTRUCTOR FUNCTION assistencia_tp(cnpj VARCHAR2(14), data_inicio DATE, descricao VARCHAR2(50),status VARCHAR2(50), equipamento VARCHAR2(50)) RETURN SELF AS RESULT
 );
 
 /
-
-CREATE OR REPLACE TYPE BODY tp_usuario AS
-    CONSTRUCTOR FUNCTION assistencia_tp(cnpj VARCHAR2(14), data_inicio DATE, descricao VARCHAR2(50), status VARCHAR2(50), equipamento VARCHAR2(50)) RETURN SELF AS RESULT IS
-    BEGIN
-        SELF.cnpj := cnpj;
-        SELF.data_inicio := data_inicio;
-        SELF.descricao := descricao;
-        SELF.status := status;
-        SELF.equipamento := equipamento;
-        RETURN;
-    END;
-END;
 
 -- Aciona
 
