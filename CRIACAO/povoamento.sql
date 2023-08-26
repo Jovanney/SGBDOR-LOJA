@@ -262,7 +262,7 @@ INSERT INTO Pedido VALUES (pedido_tp(9859595959, '1x Impressora Epson EcoTank L3
 INSERT INTO Pedido VALUES (pedido_tp(9910101019, '4x Memória RAM Corsair Vengeance RGB Pro 32GB', 299.00, TO_DATE('2023-08-10', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteL@gmail.com'), 'Rua das Memórias, 456', 'Depósito 7 - Porto Alegre', TO_DATE('2023-08-14', 'YYYY-MM-DD'), 'Florianópolis', TO_DATE('2023-08-18', 'YYYY-MM-DD'), (SELECT REF(T) FROM Transportadora T WHERE T.cnpj = '91313131313139'), 18.75, 'Em andamento'));
 INSERT INTO Pedido VALUES (pedido_tp(9961616169, '2x Monitor ASUS TUF Gaming VG27AQ', 579.85, TO_DATE('2023-08-12', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteI@gmail.com'), 'Avenida dos Jogos, 789', 'Depósito 9 - Brasília', TO_DATE('2023-08-16', 'YYYY-MM-DD'), 'Fortaleza', TO_DATE('2023-08-20', 'YYYY-MM-DD'), (SELECT REF(T) FROM Transportadora T WHERE T.cnpj = '91414141414149'), 36.90, 'Em andamento'));
 INSERT INTO Pedido VALUES (pedido_tp(9013131319, '1x Console PlayStation 5', 499.99, TO_DATE('2023-08-14', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteJ@gmail.com'), 'Rua dos Games, 101', 'Depósito 3 - Rio de Janeiro', TO_DATE('2023-08-18', 'YYYY-MM-DD'), 'São Paulo', TO_DATE('2023-08-22', 'YYYY-MM-DD'), (SELECT REF(T) FROM Transportadora T WHERE T.cnpj = '91515151515159'), 28.50, 'Entregue'));
-INSERT INTO Pedido VALUES (pedido_tp(9062626269, '3x Headset HyperX Cloud II', 229.75, TO_DATE('2023-08-16', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteK@gmail.com'), 'Avenida dos Gamers, 456', 'Depósito 4 - Porto
+
 
     
 
