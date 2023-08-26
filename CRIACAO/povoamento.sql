@@ -209,7 +209,10 @@ INSERT INTO Cliente VALUES (cliente_tp('clienteJ@gmail.com','J0J0J0','Cliente J'
 INSERT INTO Cliente VALUES (cliente_tp('clienteK@gmail.com','K1K1K1','Cliente K', 42, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '15678900'), varray_telefone(telefone_tp(9111123456), telefone_tp(9222234567)), TO_DATE('2023-08-02', 'YYYY-MM-DD')));
 INSERT INTO Cliente VALUES (cliente_tp('clienteL@gmail.com','L2L2L2','Cliente L', 44, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '16789000'), varray_telefone(telefone_tp(9333345678), telefone_tp(9444456789)), TO_DATE('2023-08-03', 'YYYY-MM-DD')));
 
+
+
 -- povoamento relatorio_aux
+
 INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('2'));
 INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('3'));
 INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('4'));
@@ -220,3 +223,20 @@ INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('8'));
 INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('9'));
 INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('10'));
 INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('11'));
+
+
+
+-- povoamento funcionario
+
+INSERT INTO Funcionario VALUES (funcionario_tp('funcionarioA@gmail.com','ABABAB','Funcionario A', 20, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '18901200'), varray_telefone(telefone_tp(9222888333), telefone_tp(9444555999)), TO_DATE('2023-07-23', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cargo C WHERE C.cargo = 'Gerente'), NULL));
+INSERT INTO Funcionario VALUES (funcionario_tp('funcionarioB@gmail.com','CDCDCD','Funcionario B', 23, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '19012300'), varray_telefone(telefone_tp(9333111444), telefone_tp(9777553999)), TO_DATE('2023-07-24', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cargo C WHERE C.cargo = 'Gerente'), NULL));
+INSERT INTO Funcionario VALUES (funcionario_tp('funcionarioC@gmail.com','DEDEDE','Funcionario C', 25, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '21113500'), varray_telefone(telefone_tp(9333222111), telefone_tp(9555333111)), TO_DATE('2023-07-25', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cargo C WHERE C.cargo = 'Supervisor'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com')));
+INSERT INTO Funcionario VALUES (funcionario_tp('funcionarioD@gmail.com','FGFGFG','Funcionario D', 28, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '22223600'), varray_telefone(telefone_tp(9444445555), telefone_tp(9666667777)), TO_DATE('2023-07-26', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cargo C WHERE C.cargo = 'Programador'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioB@gmail.com')));
+INSERT INTO Funcionario VALUES (funcionario_tp('funcionarioE@gmail.com','GHGHGH','Funcionario E', 30, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '23333700'), varray_telefone(telefone_tp(9666777888), telefone_tp(9888889999)), TO_DATE('2023-07-27', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cargo C WHERE C.cargo = 'Analista'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com')));
+INSERT INTO Funcionario VALUES (funcionario_tp('funcionarioF@gmail.com','IJIJIJ','Funcionario F', 32, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '24443800'), varray_telefone(telefone_tp(9000012345), telefone_tp(9111123456)), TO_DATE('2023-07-28', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cargo C WHERE C.cargo = 'Digital Influencer'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioB@gmail.com')));
+INSERT INTO Funcionario VALUES (funcionario_tp('funcionarioG@gmail.com','KJKJKJ','Funcionario G', 34, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '25553900'), varray_telefone(telefone_tp(9222234567), telefone_tp(9333345678)), TO_DATE('2023-07-29', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cargo C WHERE C.cargo = 'Pesquisador de Mercado'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com')));
+INSERT INTO Funcionario VALUES (funcionario_tp('funcionarioH@gmail.com','LMLMLM','Funcionario H', 36, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '26664000'), varray_telefone(telefone_tp(9444456789), telefone_tp(9555567890)), TO_DATE('2023-07-30', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cargo C WHERE C.cargo = 'Estagiário'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com')));
+INSERT INTO Funcionario VALUES (funcionario_tp('funcionarioI@gmail.com','MNMNMN','Funcionario I', 38, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '27774100'), varray_telefone(telefone_tp(9666678901), telefone_tp(9777789012)), TO_DATE('2023-07-31', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cargo C WHERE C.cargo = 'Filho do dono'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com')));
+INSERT INTO Funcionario VALUES (funcionario_tp('funcionarioJ@gmail.com','OPQOPQ','Funcionario J', 40, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '28884200'), varray_telefone(telefone_tp(9888890123), telefone_tp(9000012345)), TO_DATE('2023-08-01', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cargo C WHERE C.cargo = 'Vendedor'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioB@gmail.com')));
+INSERT INTO Funcionario VALUES (funcionario_tp('funcionarioK@gmail.com','RSTRST','Funcionario K', 42, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '29994300'), varray_telefone(telefone_tp(9111123456), telefone_tp(9222234567)), TO_DATE('2023-08-02', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cargo C WHERE C.cargo = 'Caixa'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioB@gmail.com')));
+
