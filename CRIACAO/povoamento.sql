@@ -176,3 +176,13 @@ INSERT INTO Assistencia VALUES (assistencia_tp('98098765432109', TO_DATE('2023-0
 INSERT INTO Assistencia VALUES (assistencia_tp('10987654321098', TO_DATE('2023-08-09', 'YYYY-MM-DD'), 'Desligando sozinho', 'Em andamento', 'Computador'));
 INSERT INTO Assistencia VALUES (assistencia_tp('98765432109876', TO_DATE('2023-08-10', 'YYYY-MM-DD'), 'Tela trincada', 'Concluído', 'Tablet'));
 
+INSERT INTO Servico_aux VALUES (servico_aux_tp('2'));
+INSERT INTO Servico_aux VALUES (servico_aux_tp('3'));
+INSERT INTO Servico_aux VALUES (servico_aux_tp('4'));
+INSERT INTO Servico_aux VALUES (servico_aux_tp('5'));
+INSERT INTO Servico_aux VALUES (servico_aux_tp('6'));
+INSERT INTO Servico_aux VALUES (servico_aux_tp('7'));
+INSERT INTO Servico_aux VALUES (servico_aux_tp('8'));
+INSERT INTO Servico_aux VALUES (servico_aux_tp('9'));
+INSERT INTO Servico_aux VALUES (servico_aux_tp('10'));
+INSERT INTO Servico_aux VALUES (servico_aux_tp('11'));
