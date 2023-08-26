@@ -344,3 +344,25 @@ INSERT INTO Pagamento VALUES (pagamento_tp(9102450723, TO_DATE('2023-08-20', 'YY
 INSERT INTO Pagamento VALUES (pagamento_tp(1829499587, TO_DATE('2023-08-25', 'YYYY-MM-DD'), 'Processando', 'Pix', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9656565659)));
 INSERT INTO Pagamento VALUES (pagamento_tp(6703872429, TO_DATE('2023-08-30', 'YYYY-MM-DD'), 'Confirmado', 'Boleto', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9707070709)));
 INSERT INTO Pagamento VALUES (pagamento_tp(3498120543, TO_DATE('2023-09-04', 'YYYY-MM-DD'), 'Processando', 'Em espécie', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9757575759)));
+
+
+
+
+-- povoamento produto
+
+INSERT INTO Produto VALUES (produto_tp(0101010101, 'Mouse HyperX Pulsefire', 109.99, TO_DATE('2022-10-31', 'YYYY-MM-DD'), 'Mouse com fio; Preto', 'HyperX', 'Mouse', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9202020209), 1));
+INSERT INTO Produto VALUES (produto_tp(0202020202, 'Headset SteelSeries Arctis 7+', 572.99, TO_DATE('2022-10-31', 'YYYY-MM-DD'), 'HeadSet com fio; Branco', 'Steelseries', 'Headset', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9000000009), 1));
+INSERT INTO Produto VALUES (produto_tp(0303030303, 'Monitor Acer 19,5 polegadas', 549.99, TO_DATE('2022-10-31', 'YYYY-MM-DD'), 'Monitor LED; Preto', 'Acer', 'Monitor', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9010101019), 2));
+INSERT INTO Produto VALUES (produto_tp(0404040404, 'HD 1TB Seagate', 245.00, TO_DATE('2022-10-31', 'YYYY-MM-DD'), 'HD interno; Preto', 'Seagate', 'HD', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9020202029), 4));
+INSERT INTO Produto VALUES (produto_tp(0505050505, 'HD 1TB Seagate', 150.00, TO_DATE('2022-10-31', 'YYYY-MM-DD'), 'HD interno; Preto', 'Seagate', 'HD', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9131313139), 2));
+INSERT INTO Produto VALUES (produto_tp(0606060606, 'Detroit: Become Human Digital Version', 150.00, TO_DATE('2022-11-15', 'YYYY-MM-DD'), 'Chave de ativação', 'Quantic Dream', 'Jogo Digital', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9151515159), 1));
+INSERT INTO Produto VALUES (produto_tp(0707070707, 'Beyond: Two Souls Digital Version', 49.00, TO_DATE('2022-11-15', 'YYYY-MM-DD'), 'Chave de ativação', 'Quantic Dream', 'Jogo Digital', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9151515159), 1));
+INSERT INTO Produto VALUES (produto_tp(0808080808, 'Diablo IV Digital Version', 199.00, TO_DATE('2022-11-15', 'YYYY-MM-DD'), 'Chave de ativação', 'Blizzard', 'Jogo Digital', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9202020209), 1));
+INSERT INTO Produto VALUES (produto_tp(0909090909, 'Valorant VP 13000', 299.00, TO_DATE('2022-11-15', 'YYYY-MM-DD'), 'Chave de ativação', 'Riot Games', 'Jogo Digital', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9222222229), 1));
+INSERT INTO Produto VALUES (produto_tp(1010101010, 'Teclado Dell', 89.99, TO_DATE('2022-11-15', 'YYYY-MM-DD'), 'Teclado com fio; Preto', 'Dell', 'Teclado', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9242424249), 1));
+INSERT INTO Produto VALUES (produto_tp(1111111111, 'Monitor Acer Nitro', 2099.99, TO_DATE('2022-11-30', 'YYYY-MM-DD'), 'Monitor LED 27,5 Polegadas; Preto', 'Acer', 'Monitor', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9323232329), 1));
+INSERT INTO Produto VALUES (produto_tp(1212121212, 'Mouse Razer DeathAdder', 349.85, TO_DATE('2022-11-30', 'YYYY-MM-DD'), 'Mouse com fio; Preto', 'Razer', 'Mouse', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9353535359), 1));
+INSERT INTO Produto VALUES (produto_tp(1313131313, 'HD 2TB Seagate', 344.88, TO_DATE('2023-01-31', 'YYYY-MM-DD'), 'HD interno', 'Seagate', 'HD', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9393939399), 2));
+INSERT INTO Produto VALUES (produto_tp(1414141414, 'Mouse Dell', 89.99, TO_DATE('2023-01-31', 'YYYY-MM-DD'), 'Mouse com fio; Preto', 'Dell', 'Mouse', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9424242429), 1));
+INSERT INTO Produto VALUES (produto_tp(1515151515, 'HD 2TB Seagate', 336.99, TO_DATE('2023-01-31', 'YYYY-MM-DD'), 'HD interno', 'Seagate', 'HD', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9434343439), 2));
+
