@@ -264,5 +264,17 @@ INSERT INTO Pedido VALUES (pedido_tp(9961616169, '2x Monitor ASUS TUF Gaming VG2
 INSERT INTO Pedido VALUES (pedido_tp(9013131319, '1x Console PlayStation 5', 499.99, TO_DATE('2023-08-14', 'YYYY-MM-DD'), (SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteJ@gmail.com'), 'Rua dos Games, 101', 'Depósito 3 - Rio de Janeiro', TO_DATE('2023-08-18', 'YYYY-MM-DD'), 'São Paulo', TO_DATE('2023-08-22', 'YYYY-MM-DD'), (SELECT REF(T) FROM Transportadora T WHERE T.cnpj = '91515151515159'), 28.50, 'Entregue'));
 
 
-    
+-- Povoamento de Relatorio
+
+INSERT INTO Relatorio VALUES (relatorio_tp('Codigo1', 'Descricao1', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com'), 'Protocolo1'));
+INSERT INTO Relatorio VALUES (relatorio_tp('Codigo2', 'Descricao2', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioB@gmail.com'), 'Protocolo2'));
+INSERT INTO Relatorio VALUES (relatorio_tp('Codigo3', 'Descricao3', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioC@gmail.com'), 'Protocolo3'));
+INSERT INTO Relatorio VALUES (relatorio_tp('Codigo4', 'Descricao4', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioD@gmail.com'), 'Protocolo4'));
+INSERT INTO Relatorio VALUES (relatorio_tp('Codigo5', 'Descricao5', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioE@gmail.com'), 'Protocolo5'));
+INSERT INTO Relatorio VALUES (relatorio_tp('Codigo6', 'Descricao6', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioF@gmail.com'), 'Protocolo6'));
+INSERT INTO Relatorio VALUES (relatorio_tp('Codigo7', 'Descricao7', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioG@gmail.com'), 'Protocolo7'));
+INSERT INTO Relatorio VALUES (relatorio_tp('Codigo8', 'Descricao8', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioH@gmail.com'), 'Protocolo8'));
+INSERT INTO Relatorio VALUES (relatorio_tp('Codigo9', 'Descricao9', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com'), 'Protocolo9'));
+INSERT INTO Relatorio VALUES (relatorio_tp('Codigo10', 'Descricao10', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioB@gmail.com'), 'Protocolo10'));
+
 
