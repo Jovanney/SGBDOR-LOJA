@@ -28,8 +28,13 @@ CREATE OR REPLACE TYPE varray_telefone AS VARRAY(2) OF telefone_tp;
 
 CREATE OR REPLACE TYPE cargo_tp AS OBJECT (
     cargo VARCHAR2(200),
-    salario VARCHAR2(200)
+    salario VARCHAR2(200),
+    CONSTRUCTOR FUNCTION cargo_tp(
+        cargo VARCHAR2,
+        salario VARCHAR2
+    ) RETURN SELF AS RESULT
 );
+/
 
 /
 
@@ -148,6 +153,16 @@ CREATE OR REPLACE TYPE pagamento_tp AS OBJECT (
 );
 
 /
+-- .
+
+CREATE OR REPLACE TYPE caracteristicas_list AS TABLE OF VARCHAR2(200);
+
+CREATE TABLE Produto_Caracteristicas (
+    id_produto NUMBER(10),
+    caracteristicas caracteristicas_list
+) NESTED TABLE caracteristicas STORE AS produto_caracteristicas_nt;
+
+-- .
 
 -- Produto 
 
@@ -156,7 +171,7 @@ CREATE OR REPLACE TYPE produto_tp AS OBJECT (
     nome VARCHAR2(100),
     preco NUMBER(7,2),
     data_estoque DATE,
-    caracteristicas VARCHAR2(200),
+    caracteristicas caracteristicas_list,
     marca VARCHAR2(20),
     categoria VARCHAR2(20),
     pedido REF pedido_tp,
@@ -191,17 +206,38 @@ CREATE OR REPLACE TYPE assistencia_tp AS OBJECT(
     status VARCHAR2(50),
     equipamento VARCHAR2(50),
 
-    MEMBER FUNCTION get_msg_assistencia_completa RETURN VARCHAR2
+    MEMBER FUNCTION get_msg_assistencia_completa RETURN VARCHAR2,
+    MEMBER FUNCTION CalcularTempoDesdeInicio RETURN NUMBER
 );
 
 /
 
+----
+CREATE TABLE Assistencia OF assistencia_tp (   
+    cnpj PRIMARY KEY,   
+    data_inicio NOT NULL,   
+    descricao NOT NULL,   
+    status NOT NULL,   
+    equipamento NOT NULL   
+);
+
 CREATE OR REPLACE TYPE BODY assistencia_tp AS
-	MEMBER FUNCTION get_msg_assistencia_completa RETURN VARCHAR2 IS
+    MEMBER FUNCTION get_msg_assistencia_completa RETURN VARCHAR2 IS
     BEGIN 
-		RETURN 'Assistência de um(a) ' || SELF.equipamento || ' ' || SELF.status || 'tendo como motivação: ' || SELF.descricao;
+        RETURN 'Assistência de um(a) ' || SELF.equipamento || ' ' || SELF.status || ' tendo como motivação: ' || SELF.descricao;
+    END;
+
+    MEMBER FUNCTION CalcularTempoDesdeInicio RETURN NUMBER IS
+        dias_passados NUMBER;
+    BEGIN
+        dias_passados := TRUNC(SYSDATE) - TRUNC(data_inicio);
+        RETURN dias_passados;
     END;
 END;
+/
+
+
+	
 
 /
 
@@ -341,7 +377,22 @@ CREATE TABLE Cargo OF cargo_tp (
     salario NOT NULL
 );
 
+CREATE OR REPLACE TYPE BODY cargo_tp AS
+    CONSTRUCTOR FUNCTION cargo_tp(
+        cargo VARCHAR2,
+        salario VARCHAR2
+    ) RETURN SELF AS RESULT
+    IS
+    BEGIN
+        SELF.cargo := cargo;
+        SELF.salario := salario;
+        RETURN;
+    END;
+END;
 /
+
+/
+	
 
 -- Funcionário
 
@@ -418,7 +469,7 @@ CREATE TABLE Produto OF produto_tp (
 	nome NOT NULL,
 	preco NOT NULL,
 	data_estoque NOT NULL,
-	caracteristicas NOT NULL,
+	caracteristicas,
 	marca NOT NULL,
 	categoria NOT NULL,
 	
@@ -427,6 +478,10 @@ CREATE TABLE Produto OF produto_tp (
 );
 
 /
+
+-- .
+ALTER TABLE Produto_Caracteristicas ADD CONSTRAINT fk_produto_caracteristicas FOREIGN KEY (id_produto) REFERENCES Produto (id_produto);
+-------
 
 -- Assistencia
 
