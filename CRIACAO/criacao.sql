@@ -99,9 +99,21 @@ CREATE OR REPLACE TYPE pedido_tp AS OBJECT (
 	data_entrega DATE,
 	transportadora REF transportadora_tp,
 	frete NUMBER(5,2),
-	status VARCHAR2(20)
+	status VARCHAR2(20),
+
+	MEMBER FUNCTION get_valorTotal RETURN NUMBER
 
 );
+
+/
+
+CREATE OR REPLACE TYPE BODY pedido_tp AS
+    MEMBER FUNCTION get_valorTotal RETURN NUMBER IS
+    t NUMBER := self.preco + self.frete;
+    BEGIN
+    	return t;
+    END;
+END;
 
 /
 
@@ -122,15 +134,27 @@ CREATE OR REPLACE TYPE pagamento_tp AS OBJECT (
 
 CREATE OR REPLACE TYPE produto_tp AS OBJECT (
     id_produto NUMBER(10),
-	quantidade NUMBER(3),
-	nome VARCHAR2(100),
-	preco NUMBER(7,2),
-	data_estoque DATE,
-	caracteristicas VARCHAR2(200),
-	marca VARCHAR2(20),
-	categoria VARCHAR2(20),
-	pedido REF pedido_tp
+    nome VARCHAR2(100),
+    preco NUMBER(7,2),
+    data_estoque DATE,
+    caracteristicas VARCHAR2(200),
+    marca VARCHAR2(20),
+    categoria VARCHAR2(20),
+    pedido REF pedido_tp,
+    quantidade NUMBER(3),
+
+    MAP MEMBER FUNCTION get_precoTotal_produto RETURN NUMBER
 );
+
+/
+
+CREATE OR REPLACE TYPE BODY produto_tp AS
+    MAP MEMBER FUNCTION get_precoTotal_produto RETURN NUMBER IS
+    v NUMBER := self.preco * self.quantidade;
+    BEGIN
+        return v;
+	END;
+END;
 
 /
 
@@ -141,8 +165,19 @@ CREATE OR REPLACE TYPE assistencia_tp AS OBJECT(
     data_inicio DATE,
     descricao VARCHAR2(50),
     status VARCHAR2(50),
-    equipamento VARCHAR2(50)
+    equipamento VARCHAR2(50),
+
+    MEMBER FUNCTION get_msg_assistencia_completa RETURN VARCHAR2
 );
+
+/
+
+CREATE OR REPLACE TYPE BODY assistencia_tp AS
+	MEMBER FUNCTION get_msg_assistencia_completa RETURN VARCHAR2 IS
+    BEGIN 
+		RETURN 'Assistência de um(a) ' || SELF.equipamento || ' ' || SELF.status || 'tendo como motivação: ' || SELF.descricao;
+    END;
+END;
 
 /
 
