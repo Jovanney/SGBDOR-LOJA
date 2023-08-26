@@ -149,18 +149,20 @@ CREATE OR REPLACE TYPE pagamento_tp AS OBJECT (
 
 /
 
--- Produto 
+-- Produto
+
+CREATE TYPE caracteristicas_list AS TABLE OF VARCHAR2(200);
 
 CREATE OR REPLACE TYPE produto_tp AS OBJECT (
     id_produto NUMBER(10),
     nome VARCHAR2(100),
     preco NUMBER(7,2),
     data_estoque DATE,
-    caracteristicas VARCHAR2(200),
+    caracteristicas caracteristicas_list,
     marca VARCHAR2(20),
     categoria VARCHAR2(20),
     pedido REF pedido_tp,
- 
+    quantidade NUMBER(3),
 
     MAP MEMBER FUNCTION get_precoTotal_produto RETURN NUMBER
 );
@@ -168,17 +170,19 @@ CREATE OR REPLACE TYPE produto_tp AS OBJECT (
 /
 
 
-ALTER TYPE produto_tp ADD ATTRIBUTE(quantidade NUMBER(3)) CASCADE;
+-- ALTER TYPE produto_tp ADD ATTRIBUTE(quantidade NUMBER(3)) CASCADE;
+-- ALTERAR DE TABELA FUNC CASCADE^
 
 /
 
-CREATE OR REPLACE TYPE BODY produto_tp AS
+CREATE TYPE BODY produto_tp AS
     MAP MEMBER FUNCTION get_precoTotal_produto RETURN NUMBER IS
     v NUMBER := self.preco * self.quantidade;
     BEGIN
         return v;
-	END;
+    END;
 END;
+
 
 /
 
@@ -414,17 +418,11 @@ CREATE TABLE Pagamento OF pagamento_tp (
 -- Produto
 
 CREATE TABLE Produto OF produto_tp (
-	quantidade NOT NULL,
-	nome NOT NULL,
-	preco NOT NULL,
-	data_estoque NOT NULL,
-	caracteristicas NOT NULL,
-	marca NOT NULL,
-	categoria NOT NULL,
-	
-    id_produto PRIMARY KEY,
+    PRIMARY KEY (id_produto),
+
     pedido WITH ROWID REFERENCES Pedido
-);
+
+) NESTED TABLE caracteristicas STORE AS produto_caracteristicas_nt;
 
 /
 
