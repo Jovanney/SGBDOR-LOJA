@@ -4,10 +4,10 @@
 
 CREATE OR REPLACE TYPE endereco_tp AS OBJECT (
     CEP VARCHAR2(8),
-    Bairro VARCHAR2(200),
-    Rua VARCHAR2(200),
-    Numero VARCHAR2(20),
-    Complemento VARCHAR2(200)
+    bairro VARCHAR2(200),
+    rua VARCHAR2(200),
+    numero VARCHAR2(20),
+    complemento VARCHAR2(200)
 );
 
 /
@@ -41,16 +41,47 @@ CREATE OR REPLACE TYPE usuario_tp AS OBJECT (
     nome VARCHAR2(200),
     idade NUMBER,
     endereco REF endereco_tp,
-    telefones varray_telefone
-    
-) NOT FINAL;
+    telefones varray_telefone,
+    MEMBER PROCEDURE get_usuario_info (SELF usuario_tp),
+    FINAL MEMBER PROCEDURE get_usuario_endereco (SELF usuario_tp)
+) NOT FINAL NOT INSTANTIABLE;
+
+/
+
+CREATE OR REPLACE TYPE BODY usuario_tp AS
+    MEMBER PROCEDURE get_usuario_info (SELF usuario_tp) IS
+    BEGIN
+        DBMS_OUTPUT.PUT_LINE('Nome: ' || SELF.nome);
+        DBMS_OUTPUT.PUT_LINE('Email: ' || SELF.email);
+        DBMS_OUTPUT.PUT_LINE('Idade: ' || SELF.idade);
+    END;
+    FINAL MEMBER PROCEDURE get_usuario_endereco (SELF usuario_tp) IS
+    BEGIN
+        DBMS_OUTPUT.PUT_LINE('O seu nome é ' || SELF.nome);
+        DBMS_OUTPUT.PUT_LINE('Ele(a) mora em ' || SELF.endereco.bairro );
+        DBMS_OUTPUT.PUT_LINE(SELF.endereco.cep);
+    END;
+END;
 
 /
 
 -- Cliente
 CREATE OR REPLACE TYPE cliente_tp UNDER usuario_tp (
-    data_criacao_conta DATE
+    data_criacao_conta DATE,
+    OVERRIDING MEMBER PROCEDURE get_usuario_info (SELF cliente_tp)
 );
+
+/
+
+CREATE OR REPLACE TYPE BODY cliente_tp AS
+    OVERRIDING MEMBER PROCEDURE get_usuario_info (SELF cliente_tp) IS
+    BEGIN
+        DBMS_OUTPUT.PUT_LINE('Nome: ' || SELF.nome);
+        DBMS_OUTPUT.PUT_LINE('Email: ' || SELF.email);
+        DBMS_OUTPUT.PUT_LINE('Idade: ' || SELF.idade);
+        DBMS_OUTPUT.PUT_LINE('Data de criação da conta: ' || SELF.data_criacao_conta);
+    END;
+END;
 
 /
 
@@ -58,10 +89,23 @@ CREATE OR REPLACE TYPE cliente_tp UNDER usuario_tp (
 CREATE OR REPLACE TYPE funcionario_tp UNDER usuario_tp (
     data_contratacao DATE,
     cargo REF cargo_tp,
-    supervisor REF funcionario_tp
-);   
+    supervisor REF funcionario_tp,
+    OVERRIDING MEMBER PROCEDURE get_usuario_info (SELF funcionario_tp)
+);
 
 /
+
+CREATE OR REPLACE TYPE BODY funcionario_tp AS
+    OVERRIDING MEMBER PROCEDURE get_usuario_info (SELF funcionario_tp) IS
+    BEGIN
+        DBMS_OUTPUT.PUT_LINE('Nome: ' || SELF.nome);
+        DBMS_OUTPUT.PUT_LINE('Email: ' || SELF.email);
+        DBMS_OUTPUT.PUT_LINE('Idade: ' || SELF.idade);
+        DBMS_OUTPUT.PUT_LINE('cargo: ' || SELF.cargo.cargo);
+        DBMS_OUTPUT.PUT_LINE('salario: ' || SELF.cargo.salario);
+        DBMS_OUTPUT.PUT_LINE('Data de contratação: ' || SELF.data_contratacao);
+    END;
+END;
 
 -- Ordem de Serviço
 
@@ -71,7 +115,7 @@ CREATE OR REPLACE TYPE ordem_de_servico_tp AS OBJECT (
     descricao VARCHAR2(100),
     produto VARCHAR2(50),
     data_de_emissao DATE
-);      
+);
 
 /
 
@@ -88,7 +132,6 @@ CREATE OR REPLACE TYPE transportadora_tp AS OBJECT (
 
 CREATE OR REPLACE TYPE pedido_tp AS OBJECT (
     id_pedido NUMBER(10),
-	descricao VARCHAR2(100),
 	preco NUMBER(8,2),
 	data_pedido DATE,
 	cliente REF cliente_tp,
@@ -101,7 +144,26 @@ CREATE OR REPLACE TYPE pedido_tp AS OBJECT (
 	frete NUMBER(5,2),
 	status VARCHAR2(20)
 
+	cliente REF cliente_tp,
+	transportadora REF transportadora_tp
+
+    ORDER MEMBER FUNCTION comparar (v pedido_tp) RETURN NUMBER
 );
+
+/
+
+CREATE OR REPLACE TYPE BODY pedido_tp AS
+    ORDER MEMBER FUNCTION comparar (v pedido_tp) RETURN NUMBER IS
+    BEGIN
+        IF SELF.preco > v.preco THEN
+            RETURN 1;
+        ELSIF SELF.preco < v.preco THEN
+            RETURN 0;
+        ELSE
+            RETURN -1;
+        END IF;
+    END;
+END;
 
 /
 
@@ -122,7 +184,6 @@ CREATE OR REPLACE TYPE pagamento_tp AS OBJECT (
 
 CREATE OR REPLACE TYPE produto_tp AS OBJECT (
     id_produto NUMBER(10),
-	quantidade NUMBER(3),
 	nome VARCHAR2(100),
 	preco NUMBER(7,2),
 	data_estoque DATE,
@@ -131,6 +192,10 @@ CREATE OR REPLACE TYPE produto_tp AS OBJECT (
 	categoria VARCHAR2(20),
 	pedido REF pedido_tp
 );
+
+/
+
+ALTER TYPE produto_tp ADD ATTRIBUTE(quantidade NUMBER(3)) CASCADE;
 
 /
 
