@@ -136,12 +136,6 @@ INSERT INTO Usuario VALUES (usuario_tp('pessoaC@gmail.com','CCCCCC','Pessoa C', 
 INSERT INTO Usuario VALUES (usuario_tp('pessoaD@gmail.com','DDDDDD','Pessoa D', 21, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '33333400'), varray_telefone(telefone_tp(9734562187), telefone_tp(9321654982))));
 INSERT INTO Usuario VALUES (usuario_tp('pessoaE@gmail.com','EEEEEE','Pessoa E', 22, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '44444500'), varray_telefone(telefone_tp(9245873164), telefone_tp(9998887777))));
 
--- UTILIZANDO UPDATE COM SET VALUE()
-
-UPDATE Cliente c
-SET VALUE(c) = cliente_tp('clientexy@gmail.com','B1B1B1','Cliente B', 25, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '66666700'), varray_telefone(telefone_tp(9023456789), telefone_tp(9222222222)), TO_DATE('2023-08-23', 'YYYY-MM-DD'))
-WHERE c.email = 'clienteA@gmail.com';
-
 --povoamento descricao
 
 INSERT INTO Descricao VALUES (descricao_tp(2, 'garantindo um blblala'));
@@ -213,7 +207,11 @@ INSERT INTO Cliente VALUES (cliente_tp('clienteJ@gmail.com','J0J0J0','Cliente J'
 INSERT INTO Cliente VALUES (cliente_tp('clienteK@gmail.com','K1K1K1','Cliente K', 42, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '15678900'), varray_telefone(telefone_tp(9111123456), telefone_tp(9222234567)), TO_DATE('2023-08-02', 'YYYY-MM-DD')));
 INSERT INTO Cliente VALUES (cliente_tp('clienteL@gmail.com','L2L2L2','Cliente L', 44, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '16789000'), varray_telefone(telefone_tp(9333345678), telefone_tp(9444456789)), TO_DATE('2023-08-03', 'YYYY-MM-DD')));
 
+-- UTILIZANDO UPDATE COM SET VALUE()
 
+UPDATE Cliente c
+SET VALUE(c) = cliente_tp('clientexy@gmail.com','B1B1B1','Cliente B', 25, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '66666700'), varray_telefone(telefone_tp(9023456789), telefone_tp(9222222222)), TO_DATE('2023-08-23', 'YYYY-MM-DD'))
+WHERE c.email = 'clienteA@gmail.com';
 
 -- povoamento relatorio_aux
 
@@ -277,4 +275,16 @@ INSERT INTO Relatorio VALUES (relatorio_tp('Codigo8', 'Descricao8', (SELECT REF(
 INSERT INTO Relatorio VALUES (relatorio_tp('Codigo9', 'Descricao9', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com'), 'Protocolo9'));
 INSERT INTO Relatorio VALUES (relatorio_tp('Codigo10', 'Descricao10', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioB@gmail.com'), 'Protocolo10'));
 
+-- Aciona
+
+INSERT INTO Aciona VALUES (aciona_tp((SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteA@gmail.com'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com'), (SELECT REF(A) FROM Assistencia A WHERE A.cnpj = '34567890123456')));
+INSERT INTO Aciona VALUES (aciona_tp((SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteB@gmail.com'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioB@gmail.com'), (SELECT REF(A) FROM Assistencia A WHERE A.cnpj = '45678901234567')));
+INSERT INTO Aciona VALUES (aciona_tp((SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteC@gmail.com'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioC@gmail.com'), (SELECT REF(A) FROM Assistencia A WHERE A.cnpj = '56789012345678')));
+INSERT INTO Aciona VALUES (aciona_tp((SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteD@gmail.com'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioD@gmail.com'), (SELECT REF(A) FROM Assistencia A WHERE A.cnpj = '34567890123456')));
+INSERT INTO Aciona VALUES (aciona_tp((SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteE@gmail.com'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com'), (SELECT REF(A) FROM Assistencia A WHERE A.cnpj = '45678901234567')));
+INSERT INTO Aciona VALUES (aciona_tp((SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteF@gmail.com'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioB@gmail.com'), (SELECT REF(A) FROM Assistencia A WHERE A.cnpj = '56789012345678')));
+INSERT INTO Aciona VALUES (aciona_tp((SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteG@gmail.com'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioC@gmail.com'), (SELECT REF(A) FROM Assistencia A WHERE A.cnpj = '34567890123456')));
+INSERT INTO Aciona VALUES (aciona_tp((SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteA@gmail.com'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioD@gmail.com'), (SELECT REF(A) FROM Assistencia A WHERE A.cnpj = '45678901234567')));
+INSERT INTO Aciona VALUES (aciona_tp((SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteB@gmail.com'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com'), (SELECT REF(A) FROM Assistencia A WHERE A.cnpj = '56789012345678')));
+INSERT INTO Aciona VALUES (aciona_tp((SELECT REF(C) FROM Cliente C WHERE C.email = 'clienteC@gmail.com'), (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioB@gmail.com'), (SELECT REF(A) FROM Assistencia A WHERE A.cnpj = '34567890123456')));
 
