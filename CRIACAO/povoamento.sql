@@ -115,3 +115,19 @@ INSERT INTO Telefone VALUES (telefone_tp(9999999999));
 INSERT INTO Telefone VALUES (telefone_tp(9101010101));
 INSERT INTO Telefone VALUES (telefone_tp(9222522232));
 INSERT INTO Telefone VALUES (telefone_tp(9333231333));
+
+
+
+--povoamento cargo
+
+INSERT INTO Cargo VALUES (cargo_tp('Suporte', 'R$2.000,00'));
+INSERT INTO Cargo VALUES (cargo_tp('Gerente', 'R$20.000,00'));
+INSERT INTO Cargo VALUES (cargo_tp('Supervisor', 'R$10.000,00'));
+INSERT INTO Cargo VALUES (cargo_tp('Estagiário', 'R$100,00'));
+INSERT INTO Cargo VALUES (cargo_tp('Digital Influencer', 'R$50.000,00'));
+INSERT INTO Cargo VALUES (cargo_tp('Filho do dono', 'R$15.000,00'));
+INSERT INTO Cargo VALUES (cargo_tp('Programador', 'R$5.000,00'));
+INSERT INTO Cargo VALUES (cargo_tp('Vendedor', 'R$1.500,00'));
+INSERT INTO Cargo VALUES (cargo_tp('Caixa', 'R$1.000,00'));
+INSERT INTO Cargo VALUES (cargo_tp('Pesquisador de Mercado', 'R$3.000,00'));
+INSERT INTO Cargo VALUES (cargo_tp('Analista', 'R$4.000,00'));
