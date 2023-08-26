@@ -209,20 +209,28 @@ CREATE OR REPLACE TYPE servico_tp AS OBJECT (
     funcionario REF relatorio_tp,
     protocolo REF relatorio_tp
 );
+
+/
+
+-- Descricao
+CREATE OR REPLACE TYPE descricao_tp AS OBJECT(
+    descricao_n NUMBER,
+    acoes_tomadas VARCHAR2(50)
+);
+
 /
 
 -- Protocolo
 CREATE OR REPLACE TYPE protocolo_de_Atendimento_tp AS OBJECT (
     codigo_Protocolo VARCHAR2(50),
     assistencia REF assistencia_tp,
-    desc_Pro NUMBER,
+    descricao REF descricao_tp,
     acoes_tomadas VARCHAR2(50),
     data_inicio DATE,
     data_conclusao DATE
 );
 
 /
-
 
 -- Criando Tabelas
 
@@ -413,7 +421,31 @@ CREATE TABLE Servico_aux OF servico_aux_tp (
 CREATE TABLE Relatorio OF relatorio_tp (
     CONSTRAINT relatorio_pk PRIMARY KEY (codigo_relatorio));
 
+/
+
 --Servico
 
 CREATE TABLE Servico OF servico_tp (
     CONSTRAINT servico_pk PRIMARY KEY (codigo_servico));
+
+/
+
+-- Descricao
+CREATE TABLE Descricao OF descricao_tp(
+    descricao_n PRIMARY KEY,
+    acoes_tomadas NOT NULL
+);
+
+
+/
+
+-- Procolo de atendimento
+
+CREATE TABLE Protocolo_de_Atendimento OF protocolo_de_Atendimento_tp (
+    codigo_Protocolo PRIMARY KEY,
+    assistencia  WITH ROWID REFERENCES Assistencia,
+    descricao  WITH ROWID REFERENCES Descricao,
+    acoes_tomadas NOT NULL,
+    data_inicio NOT NULL,
+    data_conclusao NOT NULL
+);
