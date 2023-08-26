@@ -40,16 +40,35 @@ CREATE OR REPLACE TYPE usuario_tp AS OBJECT (
     senha VARCHAR2(200),
     nome VARCHAR2(200),
     idade NUMBER,
-    endereco REF endereco_tp,
-    telefones varray_telefone
-    
+    endereco endereco_tp,
+    telefones varray_telefone,
+
+    MEMBER PROCEDURE get_usuario_info (SELF usuario_tp),
+    FINAL MEMBER PROCEDURE get_usuario_endereco (SELF usuario_tp)
 ) NOT FINAL;
 
 /
 
+CREATE OR REPLACE TYPE BODY usuario_tp AS
+    MEMBER PROCEDURE get_usuario_info (SELF usuario_tp) IS
+    BEGIN
+        DBMS_OUTPUT.PUT_LINE('Nome: ' || SELF.nome);
+        DBMS_OUTPUT.PUT_LINE('Email: ' || SELF.email);
+        DBMS_OUTPUT.PUT_LINE('Idade: ' || SELF.idade);
+    END;
+    FINAL MEMBER PROCEDURE get_usuario_endereco (SELF usuario_tp) IS
+    BEGIN
+        DBMS_OUTPUT.PUT_LINE('O seu nome é ' || SELF.nome);
+        DBMS_OUTPUT.PUT_LINE('Ele(a) mora em ' || SELF.endereco.bairro );
+        DBMS_OUTPUT.PUT_LINE(SELF.endereco.cep);
+    END;
+END;
+/
+
 -- Cliente
 CREATE OR REPLACE TYPE cliente_tp UNDER usuario_tp (
-    data_criacao_conta DATE
+    data_criacao_conta DATE,
+    OVERRIDING MEMBER PROCEDURE get_usuario_info (SELF cliente_tp)
 );
 
 /
@@ -301,7 +320,7 @@ CREATE TABLE Usuario OF usuario_tp (
     senha NOT NULL,
     nome NOT NULL,
     idade NOT NULL,
-    endereco WITH ROWID REFERENCES Endereco
+    endereco NOT NULL
 );  
 
 /
