@@ -277,4 +277,13 @@ INSERT INTO Relatorio VALUES (relatorio_tp('Codigo8', 'Descricao8', (SELECT REF(
 INSERT INTO Relatorio VALUES (relatorio_tp('Codigo9', 'Descricao9', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com'), 'Protocolo9'));
 INSERT INTO Relatorio VALUES (relatorio_tp('Codigo10', 'Descricao10', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioB@gmail.com'), 'Protocolo10'));
 
-
+INSERT INTO Ordem_de_servico VALUES ('BBBBBB', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioB@gmail.com'), 'descricaoB', 'produtoB', TO_DATE('2023-08-15', 'YYYY-MM-DD'));
+INSERT INTO Ordem_de_servico VALUES ('CCCCCC', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioC@gmail.com'), 'descricaoC', 'produtoC', TO_DATE('2023-09-01', 'YYYY-MM-DD'));
+INSERT INTO Ordem_de_servico VALUES ('DDDDDD', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioD@gmail.com'), 'descricaoD', 'produtoD', TO_DATE('2023-07-30', 'YYYY-MM-DD'));
+INSERT INTO Ordem_de_servico VALUES ('EEEEEE', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioE@gmail.com'), 'descricaoE', 'produtoE', TO_DATE('2023-08-05', 'YYYY-MM-DD'));
+INSERT INTO Ordem_de_servico VALUES ('FFFFFF', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioF@gmail.com'), 'descricaoF', 'produtoF', TO_DATE('2023-09-10', 'YYYY-MM-DD'));
+INSERT INTO Ordem_de_servico VALUES ('GGGGGG', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioG@gmail.com'), 'descricaoG', 'produtoG', TO_DATE('2023-07-18', 'YYYY-MM-DD'));
+INSERT INTO Ordem_de_servico VALUES ('HHHHHH', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioH@gmail.com'), 'descricaoH', 'produtoH', TO_DATE('2023-08-20', 'YYYY-MM-DD'));
+INSERT INTO Ordem_de_servico VALUES ('IIIIII', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioI@gmail.com'), 'descricaoI', 'produtoI', TO_DATE('2023-09-05', 'YYYY-MM-DD'));
+INSERT INTO Ordem_de_servico VALUES ('JJJJJJ', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioJ@gmail.com'), 'descricaoJ', 'produtoJ', TO_DATE('2023-07-28', 'YYYY-MM-DD'));
+INSERT INTO Ordem_de_servico VALUES ('KKKKKK', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioK@gmail.com'), 'descricaoK', 'produtoK', TO_DATE('2023-08-12', 'YYYY-MM-DD'))
