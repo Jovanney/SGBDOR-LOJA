@@ -136,7 +136,11 @@ INSERT INTO Usuario VALUES (usuario_tp('pessoaC@gmail.com','CCCCCC','Pessoa C', 
 INSERT INTO Usuario VALUES (usuario_tp('pessoaD@gmail.com','DDDDDD','Pessoa D', 21, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '33333400'), varray_telefone(telefone_tp(9734562187), telefone_tp(9321654982))));
 INSERT INTO Usuario VALUES (usuario_tp('pessoaE@gmail.com','EEEEEE','Pessoa E', 22, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '44444500'), varray_telefone(telefone_tp(9245873164), telefone_tp(9998887777))));
 
+-- UTILIZANDO UPDATE COM SET VALUE()
 
+UPDATE Cliente c
+SET VALUE(c) = cliente_tp('clientexy@gmail.com','B1B1B1','Cliente B', 25, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '66666700'), varray_telefone(telefone_tp(9023456789), telefone_tp(9222222222)), TO_DATE('2023-08-23', 'YYYY-MM-DD'))
+WHERE c.email = 'clienteA@gmail.com';
 
 --povoamento descricao
 
