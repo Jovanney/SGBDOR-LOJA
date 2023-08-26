@@ -163,6 +163,8 @@ INSERT INTO Usuario VALUES (usuario_tp('pessoaAF@gmail.com','AFAFAF','Pessoa AF'
 
 
 
+--povoamento descricao
+
 INSERT INTO Descricao VALUES (descricao_tp(2, 'garantindo um blblala'));
 INSERT INTO Descricao VALUES (descricao_tp(3, 'solucionando problemas'));
 INSERT INTO Descricao VALUES (descricao_tp(4, 'máquina funcionando sem falhas'));
@@ -173,3 +175,29 @@ INSERT INTO Descricao VALUES (descricao_tp(8, 'formatando o pc'));
 INSERT INTO Descricao VALUES (descricao_tp(9, 'PC'));
 INSERT INTO Descricao VALUES (descricao_tp(10, 'manutenção'));
 INSERT INTO Descricao VALUES (descricao_tp(11, 'ambiente digital'));
+
+
+
+--povoamento assistencia
+
+INSERT INTO Assistencia VALUES (assistencia_tp('34567890123456', TO_DATE('2023-07-23', 'YYYY-MM-DD'), 'Instalar o Pacote Office', 'Em andamento', 'Notebook'));
+INSERT INTO Assistencia VALUES (assistencia_tp('45678901234567', TO_DATE('2023-07-24', 'YYYY-MM-DD'), 'Display quebrado', 'Concluído', 'Monitor'));
+INSERT INTO Assistencia VALUES (assistencia_tp('56789012345678', TO_DATE('2023-07-25', 'YYYY-MM-DD'), 'Sinal fraco', 'Em andamento', 'Roteador'));
+INSERT INTO Assistencia VALUES (assistencia_tp('12345678901234', TO_DATE('2023-07-21', 'YYYY-MM-DD'), 'Poeira interna e pasta térmica antiga', 'Em andamento', 'Computador'));
+INSERT INTO Assistencia VALUES (assistencia_tp('23456789012345', TO_DATE('2023-07-22', 'YYYY-MM-DD'), 'Impressora com engasgo de papel', 'Concluído', 'Impressora'));
+INSERT INTO Assistencia VALUES (assistencia_tp('12344672301454', TO_DATE('2023-05-21', 'YYYY-MM-DD'), 'Porta HDMI sem funcionar', 'Em andamento', 'Placa de Vídeo'));
+INSERT INTO Assistencia VALUES (assistencia_tp('67890123456789', TO_DATE('2023-07-26', 'YYYY-MM-DD'), 'Problemas com o sistema operacional', 'Em andamento', 'Computador'));
+INSERT INTO Assistencia VALUES (assistencia_tp('78901234567890', TO_DATE('2023-07-27', 'YYYY-MM-DD'), 'Problemas com a conexão de internet', 'Concluído', 'Roteador'));
+INSERT INTO Assistencia VALUES (assistencia_tp('89012345678901', TO_DATE('2023-07-28', 'YYYY-MM-DD'), 'Teclas sem funcionar', 'Em andamento', 'Teclado'));
+INSERT INTO Assistencia VALUES (assistencia_tp('90123456789012', TO_DATE('2023-07-29', 'YYYY-MM-DD'), 'Clique duplo', 'Concluído', 'Mouse'));
+INSERT INTO Assistencia VALUES (assistencia_tp('21098765432109', TO_DATE('2023-08-01', 'YYYY-MM-DD'), 'Tela piscando', 'Em andamento', 'Monitor'));
+INSERT INTO Assistencia VALUES (assistencia_tp('32098765432109', TO_DATE('2023-08-02', 'YYYY-MM-DD'), 'Não liga', 'Concluído', 'Notebook'));
+INSERT INTO Assistencia VALUES (assistencia_tp('43098765432109', TO_DATE('2023-08-03', 'YYYY-MM-DD'), 'Lentidão', 'Em andamento', 'Computador'));
+INSERT INTO Assistencia VALUES (assistencia_tp('54098765432109', TO_DATE('2023-08-04', 'YYYY-MM-DD'), 'Sem sinal de rede', 'Concluído', 'Roteador'));
+INSERT INTO Assistencia VALUES (assistencia_tp('65098765432109', TO_DATE('2023-08-05', 'YYYY-MM-DD'), 'Impressões manchadas', 'Em andamento', 'Impressora'));
+INSERT INTO Assistencia VALUES (assistencia_tp('76098765432109', TO_DATE('2023-08-06', 'YYYY-MM-DD'), 'Não reconhece USB', 'Em andamento', 'Computador'));
+INSERT INTO Assistencia VALUES (assistencia_tp('87098765432109', TO_DATE('2023-08-07', 'YYYY-MM-DD'), 'Teclado travando', 'Concluído', 'Teclado'));
+INSERT INTO Assistencia VALUES (assistencia_tp('98098765432109', TO_DATE('2023-08-08', 'YYYY-MM-DD'), 'Sem áudio', 'Em andamento', 'Notebook'));
+INSERT INTO Assistencia VALUES (assistencia_tp('10987654321098', TO_DATE('2023-08-09', 'YYYY-MM-DD'), 'Desligando sozinho', 'Em andamento', 'Computador'));
+INSERT INTO Assistencia VALUES (assistencia_tp('98765432109876', TO_DATE('2023-08-10', 'YYYY-MM-DD'), 'Tela trincada', 'Concluído', 'Tablet'));
+
