@@ -135,31 +135,6 @@ INSERT INTO Usuario VALUES (usuario_tp('pessoaB@gmail.com','BBBBBB','Pessoa B', 
 INSERT INTO Usuario VALUES (usuario_tp('pessoaC@gmail.com','CCCCCC','Pessoa C', 20, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '22222300'), varray_telefone(telefone_tp(9456782345), telefone_tp(9234129876))));
 INSERT INTO Usuario VALUES (usuario_tp('pessoaD@gmail.com','DDDDDD','Pessoa D', 21, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '33333400'), varray_telefone(telefone_tp(9734562187), telefone_tp(9321654982))));
 INSERT INTO Usuario VALUES (usuario_tp('pessoaE@gmail.com','EEEEEE','Pessoa E', 22, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '44444500'), varray_telefone(telefone_tp(9245873164), telefone_tp(9998887777))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaF@gmail.com','FFFFFF','Pessoa F', 23, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '55555600'), varray_telefone(telefone_tp(9645723198), telefone_tp(9865432891))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaG@gmail.com','GGGGGG','Pessoa G', 24, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '66666700'), varray_telefone(telefone_tp(9987654321), telefone_tp(9321756489))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaH@gmail.com','HHHHHH','Pessoa H', 25, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '77777800'), varray_telefone(telefone_tp(9543218765), telefone_tp(9665544332))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaI@gmail.com','IIIIII','Pessoa I', 26, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '88888900'), varray_telefone(telefone_tp(9777889911), telefone_tp(9533321122))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaJ@gmail.com','JJJJJJ','Pessoa J', 27, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '99999000'), varray_telefone(telefone_tp(9123498765), telefone_tp(9555876543))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaK@gmail.com','KKKKKK','Pessoa K', 28, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '10000000'), varray_telefone(telefone_tp(9445762134), telefone_tp(9321223344))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaL@gmail.com','LLLLLL','Pessoa L', 29, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '11112100'), varray_telefone(telefone_tp(9212345678), telefone_tp(9234987654))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaM@gmail.com','MMMMMM','Pessoa M', 30, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '11234600'), varray_telefone(telefone_tp(9898765432), telefone_tp(9777888999))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaN@gmail.com','NNNNNN','Pessoa N', 31, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '12345800'), varray_telefone(telefone_tp(9966554433), telefone_tp(9555123498))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaO@gmail.com','OOOOOO','Pessoa O', 31, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '13456900'), varray_telefone(telefone_tp(9444228899), telefone_tp(9333669966))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaP@gmail.com','PPPPPP','Pessoa P', 32, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '14567800'), varray_telefone(telefone_tp(9888776655), telefone_tp(9333888777))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaQ@gmail.com','QQQQQQ','Pessoa Q', 33, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '15678900'), varray_telefone(telefone_tp(9777666555), telefone_tp(9444888777))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaR@gmail.com','RRRRRR','Pessoa R', 34, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '16789000'), varray_telefone(telefone_tp(9666555444), telefone_tp(9666555444))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaS@gmail.com','SSSSSS','Pessoa S', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '17890100'), varray_telefone(telefone_tp(9555443322), telefone_tp(9777666111))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaT@gmail.com','TTTTTT','Pessoa T', 36, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '18901200'), varray_telefone(telefone_tp(9333888999), telefone_tp(9888776999))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaU@gmail.com','UUUUUU','Pessoa U', 36, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '19012300'), varray_telefone(telefone_tp(9777888111), telefone_tp(9555777222))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaV@gmail.com','VVVVVV','Pessoa V', 36, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '20023400'), varray_telefone(telefone_tp(9444333222), telefone_tp(9333555111))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaX@gmail.com','XXXXXX','Pessoa X', 36, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '21113500'), varray_telefone(telefone_tp(9333777888), telefone_tp(9444111222))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaW@gmail.com','WWWWWW','Pessoa W', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '22223600'), varray_telefone(telefone_tp(9222333444), telefone_tp(9555444111))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaZ@gmail.com','ZZZZZZ','Pessoa Z', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '23333700'), varray_telefone(telefone_tp(9777666999), telefone_tp(9666555999))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaAB@gmail.com','ABABAB','Pessoa AB', 37, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '24443800'), varray_telefone(telefone_tp(9333888333), telefone_tp(9444222444))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaAC@gmail.com','ACACAC','Pessoa AC', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '25553900'), varray_telefone(telefone_tp(9444777888), telefone_tp(9666444111))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaAD@gmail.com','ADADAD','Pessoa AD', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '26664000'), varray_telefone(telefone_tp(9555111222), telefone_tp(9777333999))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaAE@gmail.com','AEAEAE','Pessoa AE', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '27774100'), varray_telefone(telefone_tp(9222888333), telefone_tp(9444555999))));
-INSERT INTO Usuario VALUES (usuario_tp('pessoaAF@gmail.com','AFAFAF','Pessoa AF', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '28884200'), varray_telefone(telefone_tp(9333111444), telefone_tp(9777553999))));
 
 
 
