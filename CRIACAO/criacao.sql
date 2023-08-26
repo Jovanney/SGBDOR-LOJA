@@ -91,16 +91,16 @@ CREATE OR REPLACE TYPE pedido_tp AS OBJECT (
 	descricao VARCHAR2(100),
 	preco NUMBER(8,2),
 	data_pedido DATE,
+	cliente REF cliente_tp,
 	destino VARCHAR2(50),
 	local_saida VARCHAR2(50),
 	data_saida DATE,
 	local_atual VARCHAR2(50),
 	data_entrega DATE,
+	transportadora REF transportadora_tp
 	frete NUMBER(5,2),
 	status VARCHAR2(20),
 
-	cliente REF cliente_tp,
-	transportadora REF transportadora_tp
 );
 
 /
