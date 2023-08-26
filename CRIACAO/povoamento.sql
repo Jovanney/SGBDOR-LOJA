@@ -125,3 +125,41 @@ INSERT INTO Cargo VALUES (cargo_tp('Vendedor', 'R$1.500,00'));
 INSERT INTO Cargo VALUES (cargo_tp('Caixa', 'R$1.000,00'));
 INSERT INTO Cargo VALUES (cargo_tp('Pesquisador de Mercado', 'R$3.000,00'));
 INSERT INTO Cargo VALUES (cargo_tp('Analista', 'R$4.000,00'));
+
+
+
+--povoamento usuario
+
+INSERT INTO Usuario VALUES (usuario_tp('pessoaA@gmail.com','AAAAAA','Pessoa A', 18, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '11111200'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaB@gmail.com','BBBBBB','Pessoa B', 19, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '11111200'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaC@gmail.com','CCCCCC','Pessoa C', 20, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '22222300'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaD@gmail.com','DDDDDD','Pessoa D', 21, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '33333400'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaE@gmail.com','EEEEEE','Pessoa E', 22, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '44444500'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaF@gmail.com','FFFFFF','Pessoa F', 23, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '55555600'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaG@gmail.com','GGGGGG','Pessoa G', 24, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '66666700'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaH@gmail.com','HHHHHH','Pessoa H', 25, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '77777800'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaI@gmail.com','IIIIII','Pessoa I', 26, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '88888900'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaJ@gmail.com','JJJJJJ','Pessoa J', 27, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '99999000'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaK@gmail.com','KKKKKK','Pessoa K', 28, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '10000000'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaL@gmail.com','LLLLLL','Pessoa L', 29, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '11112100'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaM@gmail.com','MMMMMM','Pessoa M', 30, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '11234600'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaN@gmail.com','NNNNNN','Pessoa N', 31, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '12345800'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaO@gmail.com','OOOOOO','Pessoa O', 31, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '13456900'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaP@gmail.com','PPPPPP','Pessoa P', 32, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '14567800'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaQ@gmail.com','QQQQQQ','Pessoa Q', 33, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '15678900'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaR@gmail.com','RRRRRR','Pessoa R', 34, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '16789000'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaS@gmail.com','SSSSSS','Pessoa S', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '17890100'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaT@gmail.com','TTTTTT','Pessoa T', 36, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '18901200'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaU@gmail.com','UUUUUU','Pessoa U', 36, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '19012300'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaV@gmail.com','VVVVVV','Pessoa V', 36, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '20023400'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaX@gmail.com','XXXXXX','Pessoa X', 36, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '21113500'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaY@gmail.com','YYYYYY','Pessoa Y', 18, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '22223600'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaW@gmail.com','WWWWWW','Pessoa W', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '23333700'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaZ@gmail.com','ZZZZZZ','Pessoa Z', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '24443800'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaAB@gmail.com','ABABAB','Pessoa AB', 37, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '25553900'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaAC@gmail.com','ACACAC','Pessoa AC', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '26664000'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaAD@gmail.com','ADADAD','Pessoa AD', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '27774100'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaAE@gmail.com','AEAEAE','Pessoa AE', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '28884200'), NULL));
+INSERT INTO Usuario VALUES (usuario_tp('pessoaAF@gmail.com','AFAFAF','Pessoa AF', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '29994300'), NULL));
+
+
