@@ -176,6 +176,11 @@ INSERT INTO Assistencia VALUES (assistencia_tp('98098765432109', TO_DATE('2023-0
 INSERT INTO Assistencia VALUES (assistencia_tp('10987654321098', TO_DATE('2023-08-09', 'YYYY-MM-DD'), 'Desligando sozinho', 'Em andamento', 'Computador'));
 INSERT INTO Assistencia VALUES (assistencia_tp('98765432109876', TO_DATE('2023-08-10', 'YYYY-MM-DD'), 'Tela trincada', 'Concluído', 'Tablet'));
 
+
+
+
+--povoamento servico_aux
+
 INSERT INTO Servico_aux VALUES (servico_aux_tp('2'));
 INSERT INTO Servico_aux VALUES (servico_aux_tp('3'));
 INSERT INTO Servico_aux VALUES (servico_aux_tp('4'));
@@ -186,3 +191,21 @@ INSERT INTO Servico_aux VALUES (servico_aux_tp('8'));
 INSERT INTO Servico_aux VALUES (servico_aux_tp('9'));
 INSERT INTO Servico_aux VALUES (servico_aux_tp('10'));
 INSERT INTO Servico_aux VALUES (servico_aux_tp('11'));
+
+
+
+--povoamento cliente
+
+INSERT INTO Cliente VALUES (cliente_tp('clienteA@gmail.com','A1A1A1','Cliente A', 20, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '66666700'), varray_telefone(telefone_tp(9012310258), telefone_tp(9111111111)), TO_DATE('2023-07-23', 'YYYY-MM-DD')));
+INSERT INTO Cliente VALUES (cliente_tp('clienteB@gmail.com','B2B2B2','Cliente B', 22, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '77777800'), varray_telefone(telefone_tp(9981815244), telefone_tp(9222222222)), TO_DATE('2023-07-24', 'YYYY-MM-DD')));
+INSERT INTO Cliente VALUES (cliente_tp('clienteC@gmail.com','C3C3C3','Cliente C', 25, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '88888900'), varray_telefone(telefone_tp(9333777888), telefone_tp(9444111222)), TO_DATE('2023-07-25', 'YYYY-MM-DD')));
+INSERT INTO Cliente VALUES (cliente_tp('clienteD@gmail.com','D4D4D4','Cliente D', 28, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '99999000'), varray_telefone(telefone_tp(9555566666), telefone_tp(9666677777)), TO_DATE('2023-07-26', 'YYYY-MM-DD')));
+INSERT INTO Cliente VALUES (cliente_tp('clienteE@gmail.com','E5E5E5','Cliente E', 30, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '10000000'), varray_telefone(telefone_tp(9777788888), telefone_tp(9888899999)), TO_DATE('2023-07-27', 'YYYY-MM-DD')));
+INSERT INTO Cliente VALUES (cliente_tp('clienteF@gmail.com','F6F6F6','Cliente F', 32, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '11112100'), varray_telefone(telefone_tp(9000012345), telefone_tp(9111123456)), TO_DATE('2023-07-28', 'YYYY-MM-DD')));
+INSERT INTO Cliente VALUES (cliente_tp('clienteG@gmail.com','G7G7G7','Cliente G', 34, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '11234600'), varray_telefone(telefone_tp(9222234567), telefone_tp(9333345678)), TO_DATE('2023-07-29', 'YYYY-MM-DD')));
+INSERT INTO Cliente VALUES (cliente_tp('clienteH@gmail.com','H8H8H8','Cliente H', 36, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '12345800'), varray_telefone(telefone_tp(9444456789), telefone_tp(9555567890)), TO_DATE('2023-07-30', 'YYYY-MM-DD')));
+INSERT INTO Cliente VALUES (cliente_tp('clienteI@gmail.com','I9I9I9','Cliente I', 38, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '13456900'), varray_telefone(telefone_tp(9666678901), telefone_tp(9777789012)), TO_DATE('2023-07-31', 'YYYY-MM-DD')));
+INSERT INTO Cliente VALUES (cliente_tp('clienteJ@gmail.com','J0J0J0','Cliente J', 40, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '14567800'), varray_telefone(telefone_tp(9888890123), telefone_tp(9000012345)), TO_DATE('2023-08-01', 'YYYY-MM-DD')));
+INSERT INTO Cliente VALUES (cliente_tp('clienteK@gmail.com','K1K1K1','Cliente K', 42, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '15678900'), varray_telefone(telefone_tp(9111123456), telefone_tp(9222234567)), TO_DATE('2023-08-02', 'YYYY-MM-DD')));
+INSERT INTO Cliente VALUES (cliente_tp('clienteL@gmail.com','L2L2L2','Cliente L', 44, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '16789000'), varray_telefone(telefone_tp(9333345678), telefone_tp(9444456789)), TO_DATE('2023-08-03', 'YYYY-MM-DD')));
+
