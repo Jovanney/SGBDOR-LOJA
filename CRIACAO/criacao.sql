@@ -141,10 +141,15 @@ CREATE OR REPLACE TYPE produto_tp AS OBJECT (
     marca VARCHAR2(20),
     categoria VARCHAR2(20),
     pedido REF pedido_tp,
-    quantidade NUMBER(3),
+ 
 
     MAP MEMBER FUNCTION get_precoTotal_produto RETURN NUMBER
 );
+
+/
+
+
+ALTER TYPE produto_tp ADD ATTRIBUTE(quantidade NUMBER(3)) CASCADE;
 
 /
 
