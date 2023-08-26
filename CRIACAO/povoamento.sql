@@ -209,3 +209,14 @@ INSERT INTO Cliente VALUES (cliente_tp('clienteJ@gmail.com','J0J0J0','Cliente J'
 INSERT INTO Cliente VALUES (cliente_tp('clienteK@gmail.com','K1K1K1','Cliente K', 42, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '15678900'), varray_telefone(telefone_tp(9111123456), telefone_tp(9222234567)), TO_DATE('2023-08-02', 'YYYY-MM-DD')));
 INSERT INTO Cliente VALUES (cliente_tp('clienteL@gmail.com','L2L2L2','Cliente L', 44, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '16789000'), varray_telefone(telefone_tp(9333345678), telefone_tp(9444456789)), TO_DATE('2023-08-03', 'YYYY-MM-DD')));
 
+-- povoamento relatorio_aux
+INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('2'));
+INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('3'));
+INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('4'));
+INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('5'));
+INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('6'));
+INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('7'));
+INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('8'));
+INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('9'));
+INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('10'));
+INSERT INTO relatorio_aux VALUES (relatorio_aux_tp('11'));
