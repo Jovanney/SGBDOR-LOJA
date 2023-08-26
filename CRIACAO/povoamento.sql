@@ -160,3 +160,16 @@ INSERT INTO Usuario VALUES (usuario_tp('pessoaAC@gmail.com','ACACAC','Pessoa AC'
 INSERT INTO Usuario VALUES (usuario_tp('pessoaAD@gmail.com','ADADAD','Pessoa AD', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '26664000'), varray_telefone(telefone_tp(9555111222), telefone_tp(9777333999))));
 INSERT INTO Usuario VALUES (usuario_tp('pessoaAE@gmail.com','AEAEAE','Pessoa AE', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '27774100'), varray_telefone(telefone_tp(9222888333), telefone_tp(9444555999))));
 INSERT INTO Usuario VALUES (usuario_tp('pessoaAF@gmail.com','AFAFAF','Pessoa AF', 35, (SELECT REF(E) FROM Endereco E WHERE E.CEP = '28884200'), varray_telefone(telefone_tp(9333111444), telefone_tp(9777553999))));
+
+
+
+INSERT INTO Descricao VALUES (descricao_tp(2, 'garantindo um blblala'));
+INSERT INTO Descricao VALUES (descricao_tp(3, 'solucionando problemas'));
+INSERT INTO Descricao VALUES (descricao_tp(4, 'máquina funcionando sem falhas'));
+INSERT INTO Descricao VALUES (descricao_tp(5, 'dispositivo'));
+INSERT INTO Descricao VALUES (descricao_tp(6, 'ajustes precisos'));
+INSERT INTO Descricao VALUES (descricao_tp(7, 'equipamento'));
+INSERT INTO Descricao VALUES (descricao_tp(8, 'formatando o pc'));
+INSERT INTO Descricao VALUES (descricao_tp(9, 'PC'));
+INSERT INTO Descricao VALUES (descricao_tp(10, 'manutenção'));
+INSERT INTO Descricao VALUES (descricao_tp(11, 'ambiente digital'));
