@@ -301,3 +301,17 @@ INSERT INTO Ordem_de_servico VALUES ('HHHHHH', (SELECT REF(f) FROM Funcionario f
 INSERT INTO Ordem_de_servico VALUES ('IIIIII', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioI@gmail.com'), 'descricaoI', 'produtoI', TO_DATE('2023-09-05', 'YYYY-MM-DD'));
 INSERT INTO Ordem_de_servico VALUES ('JJJJJJ', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioJ@gmail.com'), 'descricaoJ', 'produtoJ', TO_DATE('2023-07-28', 'YYYY-MM-DD'));
 INSERT INTO Ordem_de_servico VALUES ('KKKKKK', (SELECT REF(f) FROM Funcionario f WHERE f.email = 'funcionarioK@gmail.com'), 'descricaoK', 'produtoK', TO_DATE('2023-08-12', 'YYYY-MM-DD'))
+
+
+-- Servico
+
+INSERT INTO Servico VALUES (servico_tp('Servico1', 'Em andamento', TO_DATE('2023-08-01', 'YYYY-MM-DD'), NULL, (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo1'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo1')));
+INSERT INTO Servico VALUES (servico_tp('Servico2', 'Concluído', TO_DATE('2023-08-02', 'YYYY-MM-DD'), TO_DATE('2023-08-03', 'YYYY-MM-DD'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo2'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo2')));
+INSERT INTO Servico VALUES (servico_tp('Servico3', 'Em andamento', TO_DATE('2023-08-04', 'YYYY-MM-DD'), NULL, (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo3'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo3')));
+INSERT INTO Servico VALUES (servico_tp('Servico4', 'Concluído', TO_DATE('2023-08-05', 'YYYY-MM-DD'), TO_DATE('2023-08-06', 'YYYY-MM-DD'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo4'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo4')));
+INSERT INTO Servico VALUES (servico_tp('Servico5', 'Em andamento', TO_DATE('2023-08-07', 'YYYY-MM-DD'), NULL, (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo5'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo5')));
+INSERT INTO Servico VALUES (servico_tp('Servico6', 'Concluído', TO_DATE('2023-08-08', 'YYYY-MM-DD'), TO_DATE('2023-08-09', 'YYYY-MM-DD'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo6'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo6')));
+INSERT INTO Servico VALUES (servico_tp('Servico7', 'Em andamento', TO_DATE('2023-08-10', 'YYYY-MM-DD'), NULL, (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo7'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo7')));
+INSERT INTO Servico VALUES (servico_tp('Servico8', 'Concluído', TO_DATE('2023-08-11', 'YYYY-MM-DD'), TO_DATE('2023-08-12', 'YYYY-MM-DD'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo8'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo8')));
+INSERT INTO Servico VALUES (servico_tp('Servico9', 'Em andamento', TO_DATE('2023-08-13', 'YYYY-MM-DD'), NULL, (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo9'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo9')));
+INSERT INTO Servico VALUES (servico_tp('Servico10', 'Concluído', TO_DATE('2023-08-14', 'YYYY-MM-DD'), TO_DATE('2023-08-15', 'YYYY-MM-DD'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo10'), (SELECT REF(R) FROM Relatorio R WHERE R.protocolo = 'Protocolo10')));
