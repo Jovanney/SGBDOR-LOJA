@@ -1,2 +1,1 @@
-BRANCH DE TESTES
-(NÃO É A VERSÃO PARA A ENTREGA)
+Branch de aplicação de features que faltaram após 00:00h
