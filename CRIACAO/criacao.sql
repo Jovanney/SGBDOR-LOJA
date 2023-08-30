@@ -28,8 +28,25 @@ CREATE OR REPLACE TYPE varray_telefone AS VARRAY(2) OF telefone_tp;
 
 CREATE OR REPLACE TYPE cargo_tp AS OBJECT (
     cargo VARCHAR2(200),
-    salario VARCHAR2(200)
+    salario VARCHAR2(200),
+    CONSTRUCTOR FUNCTION cargo_tp(
+        cargo VARCHAR2,
+        salario VARCHAR2
+    ) RETURN SELF AS RESULT
 );
+
+CREATE OR REPLACE TYPE BODY cargo_tp AS
+    CONSTRUCTOR FUNCTION cargo_tp(
+        cargo VARCHAR2,
+        salario VARCHAR2
+    ) RETURN SELF AS RESULT
+    IS
+    BEGIN
+        SELF.cargo := cargo;
+        SELF.salario := salario;
+        RETURN;
+    END;
+END;
 
 /
 
@@ -195,15 +212,23 @@ CREATE OR REPLACE TYPE assistencia_tp AS OBJECT(
     status VARCHAR2(50),
     equipamento VARCHAR2(50),
 
-    MEMBER FUNCTION get_msg_assistencia_completa RETURN VARCHAR2
+    MEMBER FUNCTION get_msg_assistencia_completa RETURN VARCHAR2,
+MEMBER FUNCTION CalcularTempoDesdeInicio RETURN NUMBER,
 );
 
 /
 
 CREATE OR REPLACE TYPE BODY assistencia_tp AS
 	MEMBER FUNCTION get_msg_assistencia_completa RETURN VARCHAR2 IS
-    BEGIN 
-		RETURN 'Assistência de um(a) ' || SELF.equipamento || ' ' || SELF.status || 'tendo como motivação: ' || SELF.descricao;
+    BEGIN
+       RETURN 'Assistência de um(a) ' || SELF.equipamento || ' ' || SELF.status || ' tendo como motivação: ' || SELF.descricao;
+    END;
+
+    MEMBER FUNCTION CalcularTempoDesdeInicio RETURN NUMBER IS
+        dias_passados NUMBER;
+    BEGIN
+        dias_passados := TRUNC(SYSDATE) - TRUNC(data_inicio);
+        RETURN dias_passados;
     END;
 END;
 
@@ -223,7 +248,8 @@ CREATE OR REPLACE TYPE aciona_tp AS OBJECT(
 
 CREATE OR REPLACE TYPE tipo_assistencia_tp AS OBJECT (
     tipo_assistencia VARCHAR2(50),
-    assistencia REF assistencia_tp
+    assistencia REF assistencia_tp,
+    MEMBER FUNCTION CalcularTempoDesdeInicio RETURN NUMBER
 );
 
 /
