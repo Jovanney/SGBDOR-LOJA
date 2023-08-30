@@ -28,8 +28,25 @@ CREATE OR REPLACE TYPE varray_telefone AS VARRAY(2) OF telefone_tp;
 
 CREATE OR REPLACE TYPE cargo_tp AS OBJECT (
     cargo VARCHAR2(200),
-    salario VARCHAR2(200)
+    salario VARCHAR2(200),
+    CONSTRUCTOR FUNCTION cargo_tp(
+        cargo VARCHAR2,
+        salario VARCHAR2
+    ) RETURN SELF AS RESULT
 );
+
+CREATE OR REPLACE TYPE BODY cargo_tp AS
+    CONSTRUCTOR FUNCTION cargo_tp(
+        cargo VARCHAR2,
+        salario VARCHAR2
+    ) RETURN SELF AS RESULT
+    IS
+    BEGIN
+        SELF.cargo := cargo;
+        SELF.salario := salario;
+        RETURN;
+    END;
+END;
 
 /
 
@@ -149,18 +166,20 @@ CREATE OR REPLACE TYPE pagamento_tp AS OBJECT (
 
 /
 
--- Produto 
+-- Produto
+
+CREATE TYPE caracteristicas_list AS TABLE OF VARCHAR2(200);
 
 CREATE OR REPLACE TYPE produto_tp AS OBJECT (
     id_produto NUMBER(10),
     nome VARCHAR2(100),
     preco NUMBER(7,2),
     data_estoque DATE,
-    caracteristicas VARCHAR2(200),
+    caracteristicas caracteristicas_list,
     marca VARCHAR2(20),
     categoria VARCHAR2(20),
     pedido REF pedido_tp,
- 
+    quantidade NUMBER(3),
 
     MAP MEMBER FUNCTION get_precoTotal_produto RETURN NUMBER
 );
@@ -168,17 +187,19 @@ CREATE OR REPLACE TYPE produto_tp AS OBJECT (
 /
 
 
-ALTER TYPE produto_tp ADD ATTRIBUTE(quantidade NUMBER(3)) CASCADE;
+-- ALTER TYPE produto_tp ADD ATTRIBUTE(quantidade NUMBER(3)) CASCADE;
+-- ALTERAR DE TABELA FUNC CASCADE^
 
 /
 
-CREATE OR REPLACE TYPE BODY produto_tp AS
+CREATE TYPE BODY produto_tp AS
     MAP MEMBER FUNCTION get_precoTotal_produto RETURN NUMBER IS
     v NUMBER := self.preco * self.quantidade;
     BEGIN
         return v;
-	END;
+    END;
 END;
+
 
 /
 
@@ -191,15 +212,23 @@ CREATE OR REPLACE TYPE assistencia_tp AS OBJECT(
     status VARCHAR2(50),
     equipamento VARCHAR2(50),
 
-    MEMBER FUNCTION get_msg_assistencia_completa RETURN VARCHAR2
+    MEMBER FUNCTION get_msg_assistencia_completa RETURN VARCHAR2,
+MEMBER FUNCTION CalcularTempoDesdeInicio RETURN NUMBER,
 );
 
 /
 
 CREATE OR REPLACE TYPE BODY assistencia_tp AS
 	MEMBER FUNCTION get_msg_assistencia_completa RETURN VARCHAR2 IS
-    BEGIN 
-		RETURN 'Assistência de um(a) ' || SELF.equipamento || ' ' || SELF.status || 'tendo como motivação: ' || SELF.descricao;
+    BEGIN
+       RETURN 'Assistência de um(a) ' || SELF.equipamento || ' ' || SELF.status || ' tendo como motivação: ' || SELF.descricao;
+    END;
+
+    MEMBER FUNCTION CalcularTempoDesdeInicio RETURN NUMBER IS
+        dias_passados NUMBER;
+    BEGIN
+        dias_passados := TRUNC(SYSDATE) - TRUNC(data_inicio);
+        RETURN dias_passados;
     END;
 END;
 
@@ -219,7 +248,8 @@ CREATE OR REPLACE TYPE aciona_tp AS OBJECT(
 
 CREATE OR REPLACE TYPE tipo_assistencia_tp AS OBJECT (
     tipo_assistencia VARCHAR2(50),
-    assistencia REF assistencia_tp
+    assistencia REF assistencia_tp,
+    MEMBER FUNCTION CalcularTempoDesdeInicio RETURN NUMBER
 );
 
 /
@@ -414,17 +444,11 @@ CREATE TABLE Pagamento OF pagamento_tp (
 -- Produto
 
 CREATE TABLE Produto OF produto_tp (
-	quantidade NOT NULL,
-	nome NOT NULL,
-	preco NOT NULL,
-	data_estoque NOT NULL,
-	caracteristicas NOT NULL,
-	marca NOT NULL,
-	categoria NOT NULL,
-	
-    id_produto PRIMARY KEY,
+    PRIMARY KEY (id_produto),
+
     pedido WITH ROWID REFERENCES Pedido
-);
+
+) NESTED TABLE caracteristicas STORE AS produto_caracteristicas_nt;
 
 /
 
