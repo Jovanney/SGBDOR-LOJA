@@ -34,7 +34,7 @@ CREATE OR REPLACE TYPE cargo_tp AS OBJECT (
         salario VARCHAR2
     ) RETURN SELF AS RESULT
 );
-
+/
 CREATE OR REPLACE TYPE BODY cargo_tp AS
     CONSTRUCTOR FUNCTION cargo_tp(
         cargo VARCHAR2,
@@ -170,6 +170,7 @@ CREATE OR REPLACE TYPE pagamento_tp AS OBJECT (
 
 CREATE TYPE caracteristicas_list AS TABLE OF VARCHAR2(200);
 
+/
 CREATE OR REPLACE TYPE produto_tp AS OBJECT (
     id_produto NUMBER(10),
     nome VARCHAR2(100),
@@ -213,7 +214,7 @@ CREATE OR REPLACE TYPE assistencia_tp AS OBJECT(
     equipamento VARCHAR2(50),
 
     MEMBER FUNCTION get_msg_assistencia_completa RETURN VARCHAR2,
-MEMBER FUNCTION CalcularTempoDesdeInicio RETURN NUMBER,
+MEMBER FUNCTION CalcularTempoDesdeInicio RETURN NUMBER
 );
 
 /
