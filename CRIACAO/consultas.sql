@@ -1,14 +1,26 @@
--- Consultas ORDER MEMBER FUNCTION --
-DECLARE
-    assistencia assistencia_tp;
-    dias_passados NUMBER;
-BEGIN
-    assistencia := assistencia_tp('12345678901234', TO_DATE('2023-08-01', 'YYYY-MM-DD'), 'Reparo', 'Em pendencia', 'Notebook');
-    dias_passados := assistencia.CalcularTempoDesdeInicio();
-    DBMS_OUTPUT.PUT_LINE('Dias desde o início: ' || dias_passados);
-END;
-/
-    
+
+--CONSULTAS
+
+--consultas select ref
+-- usando select ref a partir de um update (é alterado a transportadora do pedido 9404040409)
+UPDATE pedido p
+SET
+    p.transportadora = (
+        SELECT
+            REF(t)
+        FROM
+            transportadora t
+        WHERE
+            t.cnpj = '90000000000009'
+    )
+WHERE
+    p.id_pedido = 9404040409;
+
+
+--usando select ref a partir de uma inserção
+INSERT INTO Relatorio VALUES (relatorio_tp('aaaaaaa', 'bbbbbbb', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com'), 'ccccccc'));
+
+
 -- SELECT de ASSISTENCIAS ordenadas de menor tempo decorrido desde a data de início para maior
 
 SELECT a.*
@@ -106,7 +118,25 @@ WHERE EXTRACT(MONTH FROM c.data_criacao_conta) = 8 AND EXTRACT(YEAR FROM c.data_
 
 
 --  TESTANDO FUNÇÕES E PROCEDURES
+-- testando função de get_usuário_info
+declare
+    funcionario_obj funcionario_tp;
+	
+begin
+	select value(f) into funcionario_obj from funcionario f where f.email = 'funcionarioA@gmail.com';
+	funcionario_obj.get_usuario_info();
+end;
 
+-- Consultas ORDER MEMBER FUNCTION --
+DECLARE
+    assistencia assistencia_tp;
+    dias_passados NUMBER;
+BEGIN
+    assistencia := assistencia_tp('12345678901234', TO_DATE('2023-08-01', 'YYYY-MM-DD'), 'Reparo', 'Em pendencia', 'Notebook');
+    dias_passados := assistencia.CalcularTempoDesdeInicio();
+    DBMS_OUTPUT.PUT_LINE('Dias desde o início: ' || dias_passados);
+END;
+/
 -- testando get_precoTotal_produto
 /
 DECLARE
@@ -170,31 +200,5 @@ BEGIN
 END;
 
 
--- testando função de get_usuário_info
 
-declare
-    funcionario_obj funcionario_tp;
-	
-begin
-	select value(f) into funcionario_obj from funcionario f where f.email = 'funcionarioA@gmail.com';
-	funcionario_obj.get_usuario_info();
-end;
-
--- usando select ref a partir de um update (é alterado a transportadora do pedido 9404040409)
-UPDATE pedido p
-SET
-    p.transportadora = (
-        SELECT
-            REF(t)
-        FROM
-            transportadora t
-        WHERE
-            t.cnpj = '90000000000009'
-    )
-WHERE
-    p.id_pedido = 9404040409;
-
-
---usando select ref a partir de uma inserção
-INSERT INTO Relatorio VALUES (relatorio_tp('aaaaaaa', 'bbbbbbb', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com'), 'ccccccc'));
 
