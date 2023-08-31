@@ -30,8 +30,11 @@ BEGIN
     COMMIT;
 END;
 /
---
 
+
+	
+
+	
 -- Consultas NESTED TABLE
     --Selecionando row de cada Produto(produto_tp) com diferentes Caracteristicas(caracteristicas)
 SELECT 
@@ -46,9 +49,23 @@ SELECT
 FROM Produto p
 CROSS JOIN TABLE(p.caracteristicas) c;
 
+    --Selecionando colunos especificas de cada Produto que tenha caracteristicas especificadas como Preto, Headset e HD interno
+SELECT 
+    p.id_produto, 
+    p.nome, 
+    c.column_value AS caracteristicas_value, 
+    p.marca, 
+    p.categoria
+FROM Produto p
+CROSS JOIN TABLE(p.caracteristicas) c
+WHERE c.column_value IN ('Preto', 'Headset', 'HD interno'); --note que nao ha pedidos com o nome headset, apenas HeadSet com fio
+
 	--Selecionando todos os tipos de características na tabela produto_caracteristicas_nt (A nested table)
 SELECT DISTINCT * FROM produto_caracteristicas_nt;
-	--
+
+
+
+
 
 -- SELECT VARRAY (telefones)
 
