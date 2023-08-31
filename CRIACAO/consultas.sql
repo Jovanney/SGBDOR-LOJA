@@ -180,6 +180,20 @@ begin
 	funcionario_obj.get_usuario_info();
 end;
 
+-- usando select ref a partir de um update (é alterado a transportadora do pedido 9404040409)
+UPDATE pedido p
+SET
+    p.transportadora = (
+        SELECT
+            REF(t)
+        FROM
+            transportadora t
+        WHERE
+            t.cnpj = '90000000000009'
+    )
+WHERE
+    p.id_pedido = 9404040409;
+
 
 --usando select ref a partir de uma inserção
 INSERT INTO Relatorio VALUES (relatorio_tp('aaaaaaa', 'bbbbbbb', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com'), 'ccccccc'));
