@@ -83,4 +83,15 @@ WHERE u.idade > 20;
 
 	-- Selecionando todos os telefones distintos salvos
 SELECT DISTINCT * FROM Telefone;
---
+
+	-- Selecionando email, dados do endereco e numeros de telefone de clientes que moram nos bairros pimentao, alho ou cenoura
+SELECT c.email, c.endereco.CEP, c.endereco.Rua, c.endereco.Bairro, c.endereco.Numero, c.endereco.Complemento, n.numero
+FROM Cliente c
+CROSS JOIN TABLE(c.telefones) n
+WHERE c.endereco.bairro IN ('bairro pimentao', 'bairro alho', 'bairro cenoura');
+
+	-- Selecionando os dados de nome, email, idade, data de criacao da conta e numeros de telefone das contas criadas em agosto de 2023
+SELECT c.nome, c.email, c.idade, c.data_criacao_conta, n.numero
+FROM Cliente c
+CROSS JOIN TABLE(c.telefones) n
+WHERE EXTRACT(MONTH FROM c.data_criacao_conta) = 8 AND EXTRACT(YEAR FROM c.data_criacao_conta) = 2023;
