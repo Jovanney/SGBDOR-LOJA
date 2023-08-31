@@ -2,6 +2,7 @@
 --CONSULTAS
 
 --consultas select ref
+
 -- usando select ref a partir de um update (é alterado a transportadora do pedido 9404040409)
 UPDATE pedido p
 SET
@@ -20,6 +21,24 @@ WHERE
 --usando select ref a partir de uma inserção
 INSERT INTO Relatorio VALUES (relatorio_tp('aaaaaaa', 'bbbbbbb', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com'), 'ccccccc'));
 
+
+-- SELECT DEREF
+
+-- Agrupando os produtos pela marca, e pelo status do pedido que o produto pertence, além de calcular o preço total para cada grupo, retornando apenas os grupos com o preço total maior que 600 dineros
+
+SELECT DEREF(p.pedido).status, p.marca, SUM(p.get_precoTotal_produto()) AS total_preco
+FROM produto p
+WHERE DEREF(p.pedido).status like 'Entregue'
+GROUP BY p.marca, DEREF(p.pedido).status 
+HAVING SUM(p.get_precoTotal_produto()) > 600;
+
+
+-- Seleciona detalhes de ordens de serviço emitidas por gerentes após 01/01/2020.
+-- Inclui nome, data de contratação e cargo do funcionário, além de informações da ordem.
+
+SELECT DEREF(s.funcionario).nome AS nome_funcionario, DEREF(s.funcionario).data_contratacao AS data_contratacao_funcionario, s.protocolo, s.descricao, s.produto, s.data_de_emissao, DEREF(s.funcionario.cargo).cargo AS cargo_funcionario
+FROM Ordem_de_servico s
+WHERE DEREF(s.funcionario.cargo).cargo = 'Gerente' AND s.data_de_emissao > TO_DATE('01/01/2020', 'DD/MM/YYYY');
 
 -- SELECT de ASSISTENCIAS ordenadas de menor tempo decorrido desde a data de início para maior
 

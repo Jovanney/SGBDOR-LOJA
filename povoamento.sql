@@ -348,9 +348,9 @@ INSERT INTO Pagamento VALUES (pagamento_tp(3498120543, TO_DATE('2023-09-04', 'YY
 
 -- povoamento produto
 
-INSERT INTO Produto VALUES (produto_tp(0202020202, 'Headset SteelSeries Arctis 7+', 572.99, TO_DATE('2022-10-31', 'YYYY-MM-DD'), caracteristicas_list('HeadSet com fio', 'Branco'), 'Steelseries', 'Headset', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9000000009), 1));
-INSERT INTO Produto VALUES (produto_tp(0303030303, 'Monitor Acer 19,5 polegadas', 549.99, TO_DATE('2022-10-31', 'YYYY-MM-DD'), caracteristicas_list('Monitor LED', 'Preto'), 'Acer', 'Monitor', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9010101019), 2));
-INSERT INTO Produto VALUES (produto_tp(0404040404, 'HD 1TB Seagate', 245.00, TO_DATE('2022-10-31', 'YYYY-MM-DD'), caracteristicas_list('HD interno', 'Preto'), 'Seagate', 'HD', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9020202029), 4));
+INSERT INTO Produto VALUES (produto_tp(0202020202, 'Headset SteelSeries Arctis 7+', 572.99, TO_DATE('2022-10-31', 'YYYY-MM-DD'), caracteristicas_list('HeadSet com fio', 'Branco'), 'Steelseries', 'Headset', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9353535359), 1));
+INSERT INTO Produto VALUES (produto_tp(0303030303, 'Monitor Acer 19,5 polegadas', 549.99, TO_DATE('2022-10-31', 'YYYY-MM-DD'), caracteristicas_list('Monitor LED', 'Preto'), 'Acer', 'Monitor', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9353535359), 2));
+INSERT INTO Produto VALUES (produto_tp(0404040404, 'HD 1TB Seagate', 245.00, TO_DATE('2022-10-31', 'YYYY-MM-DD'), caracteristicas_list('HD interno', 'Preto'), 'Seagate', 'HD', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9353535359), 4));
 INSERT INTO Produto VALUES (produto_tp(0505050505, 'HD 1TB Seagate', 150.00, TO_DATE('2022-10-31', 'YYYY-MM-DD'), caracteristicas_list('HD interno', 'Preto'), 'Seagate', 'HD', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9131313139), 2));
 INSERT INTO Produto VALUES (produto_tp(0606060606, 'Detroit: Become Human Digital Version', 150.00, TO_DATE('2022-11-15', 'YYYY-MM-DD'), caracteristicas_list('Chave de ativação'), 'Quantic Dream', 'Jogo Digital', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9151515159), 1));
 INSERT INTO Produto VALUES (produto_tp(0707070707, 'Beyond: Two Souls Digital Version', 49.00, TO_DATE('2022-11-15', 'YYYY-MM-DD'), caracteristicas_list('Chave de ativação'), 'Quantic Dream', 'Jogo Digital', (SELECT REF(P) FROM Pedido P WHERE P.id_pedido = 9151515159), 1));
