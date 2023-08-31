@@ -168,3 +168,19 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('ID do Produto: ' || id_produto || ' | Quantidade: ' || quantidade || ' | Preço: ' || preco);
     END LOOP;
 END;
+
+
+-- testando função de get_usuário_info
+
+declare
+    funcionario_obj funcionario_tp;
+	
+begin
+	select value(f) into funcionario_obj from funcionario f where f.email = 'funcionarioA@gmail.com';
+	funcionario_obj.get_usuario_info();
+end;
+
+
+--usando select ref a partir de uma inserção
+INSERT INTO Relatorio VALUES (relatorio_tp('aaaaaaa', 'bbbbbbb', (SELECT REF(F) FROM Funcionario F WHERE F.email = 'funcionarioA@gmail.com'), 'ccccccc'));
+
